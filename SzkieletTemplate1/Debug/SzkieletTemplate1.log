@@ -1,2 +1,12 @@
-﻿  SzkieletTemplate1.vcxproj -> C:\Users\Blagej\source\repos\SzkieletTemplate1\Debug\SzkieletTemplate1.exe
-  SzkieletTemplate1.vcxproj -> C:\Users\Blagej\source\repos\SzkieletTemplate1\Debug\SzkieletTemplate1.pdb (Partial PDB)
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: Katalog pośredni (Debug\) zawiera pliki udostępnione z innego projektu (SzkieletTemplate1.vcxproj). Może to spowodować niepoprawne zachowanie podczas oczyszczania i ponownej kompilacji.
+  Pomijanie... (nie wykryto odpowiednich zmian)
+  torus.cpp
+  teapot.cpp
+  sphere.cpp
+  model.cpp
+  main_file.cpp
+  lodepng.cpp
+  detailed_cube.cpp
+  cube.cpp
+  SzkieletTemplate1.vcxproj -> C:\Users\Maaslak\Documents\Visual Studio 2017\Projects\Grafika\Debug\GrafikaProj.exe
+  SzkieletTemplate1.vcxproj -> C:\Users\Maaslak\Documents\Visual Studio 2017\Projects\Grafika\Debug\GrafikaProj.pdb (Partial PDB)
