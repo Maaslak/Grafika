@@ -20,12 +20,20 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #ifndef MODEL_H
 #define MODEL_H
 
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <map>
 #include <vector>
 #include "glm/glm.hpp"
 //#include <GLFW/glfw3.h>
 #include "GL/glew.h"
 #include "GL/glut.h"
 #include "constants.h"
+#include <stdio.h>
+#include "objTester\obj_parser.h"
+
+using namespace std;
 
 namespace Models {
 
@@ -40,6 +48,11 @@ namespace Models {
 					
 			virtual void drawSolid()=0;
 			virtual void drawWire();
+
+			Model();
+			~Model();
+			Model(char * path);
+
 	};
 }
 

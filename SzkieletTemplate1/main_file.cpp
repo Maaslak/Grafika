@@ -17,36 +17,27 @@
 
 
 
+
 using namespace glm;
 
 float aspect = 1.0f; //Aktualny stosunek szerokoœci do wysokoœci okna
 float speed_x = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³ osi x
 float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³ osi y
 
+Models::Bottle* bot;
 
 
 void displayFrame() {
 	glClearColor(0, 0, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glutSwapBuffers();
-}
-/*void initializeGLUT(int* pargc, char** argv) {
-	glutInit(pargc, argv);
-	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
-	glutInitWindowPosition(0, 0);
-	glutInitWindowSize(800, 800);
-	glutCreateWindow("Program OpenGL");
-	glutDisplayFunc(displayFrame);
-}*/
-/*void initializeGLEW() {
-	GLenum err = glewInit();
-	if (GLEW_OK != err) {
-		/* Problem: Nie uda³o siê zainicjowaæ biblioteki GLEW. *//*
-		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-		exit(1);
-	}
-	fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
-}*/void error_callback(int error, const char* description) {
+}
+
+
+
+
+
+void error_callback(int error, const char* description) {
 	fputs(description, stderr);
 }
 
@@ -85,6 +76,8 @@ void initOpenGLProgram(GLFWwindow* window) {
 	glEnable(GL_LIGHT0); //W³¹cz zerowe Ÿród³o œwiat³a
 	glEnable(GL_DEPTH_TEST); //W³¹cz u¿ywanie budora g³êbokoœci
 	glEnable(GL_COLOR_MATERIAL); //W³¹cz œledzenie kolorów przez materia³
+
+	bot = new Models::Bottle("Corona/Corona.obj");
 }
 
 //Procedura rysuj¹ca zawartoœæ sceny
@@ -99,7 +92,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 		vec3(0.0f, 0.0f, -5.0f),
 		vec3(0.0f, 0.0f, 0.0f),
 		vec3(0.0f, 1.0f, 0.0f));
-	glMatrixMode(GL_PROJECTION); //W³¹cz tryb modyfikacji macierzy rzutowania
+	glMatrixMode(GL_PROJECTION); //W³¹cz tryb modyfikacji macierzy rzutomainwania
 	glLoadMatrixf(value_ptr(P)); //Za³aduj macierz rzutowania
 	glMatrixMode(GL_MODELVIEW);  //W³¹cz tryb modyfikacji macierzy model-widok
 
@@ -109,16 +102,17 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 	mat4 M = mat4(1.0f);
 	M = rotate(M, angle_x, vec3(1.0f, 0.0f, 0.0f));
 	M = rotate(M, angle_y, vec3(0.0f, 1.0f, 0.0f));
+	M = scale(M, vec3(0.1f, 0.1f, 0.1f));
 	glLoadMatrixf(value_ptr(V*M));
 
 	//2. Rysowanie modelu
 	glEnableClientState(GL_VERTEX_ARRAY); //Podczas rysowania u¿ywaj tablicy wierzcho³ków
 	glEnableClientState(GL_COLOR_ARRAY); //Podczas rysowania u¿ywaj tablicy kolorów
 
-	glVertexPointer(3, GL_FLOAT, 0, myCubeVertices); //Ustaw tablicê myCubeVertices jako tablicê wierzcho³ków
+	glVertexPointer(3, GL_FLOAT, 0, bot->vertices); //Ustaw tablicê myCubeVertices jako tablicê wierzcho³ków
 	glColorPointer(3, GL_FLOAT, 0, myCubeColors); //Ustaw tablicê myCubeColors jako tablicê kolorów
 
-	glDrawArrays(GL_QUADS, 0, myCubeVertexCount); //Rysuj model
+	glDrawArrays(GL_QUADS, 0, bot->vertexCount); //Rysuj model
 
 												  //Posprz¹taj po sobie
 	glDisableClientState(GL_VERTEX_ARRAY);
@@ -127,7 +121,13 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
-}int main(void)
+}
+
+
+
+
+
+int main(void)
 {
 	GLFWwindow* window; //WskaŸnik na obiekt reprezentuj¹cy okno
 
@@ -172,10 +172,14 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 		glfwPollEvents(); //Wykonaj procedury callback w zaleznoœci od zdarzeñ jakie zasz³y.
 	}
 
+	delete(bot);
 	glfwDestroyWindow(window); //Usuñ kontekst OpenGL i okno
 	glfwTerminate(); //Zwolnij zasoby zajête przez GLFW
 	exit(EXIT_SUCCESS);
-}
+}
+
+
+
 
 /*int main(int argc, char** argv) {
 	initializeGLUT(&argc, argv);

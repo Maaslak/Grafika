@@ -20,11 +20,61 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include "model.h"
 
 namespace Models {
+	
 	void Model::drawWire() {
 		glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 		
 		drawSolid();
 		
 		glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+	}
+	Model::Model()
+	{
+	}
+	Model::~Model()
+	{
+		if (vertices != NULL)
+			delete(vertices);
+		if (normals != NULL)
+				delete(normals);
+		if (vertexNormals != NULL)
+			delete(vertexNormals);
+		if (texCoords != NULL)
+			delete(texCoords);
+		if (colors != NULL)
+			delete(colors);
+	}
+	Model::Model(char* path)
+	{
+		obj_scene_data data;
+		if (!parse_obj_scene(&data, path))	//loadOBJ "Corona/Corona.obj"
+			throw EXCEPTION_BREAKPOINT;
+		if (data.face_list[0]->vertex_count == 3) {
+			vertexCount = data.face_count;
+			vertices = new float[9 * data.face_count];
+			for (unsigned int i = 0; i < data.face_count; i++)
+			{
+				for (unsigned int j = 0; j < 3; i++)
+				{
+					vertices[i*9 + j*3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
+					vertices[i * 9 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
+					vertices[i * 9 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
+				}
+			}
+		}
+		if (data.face_list[0]->vertex_count == 4) {
+			vertexCount = data.face_count;
+			vertices = new float[12 * data.face_count];
+			for (unsigned int i = 0; i < data.face_count; i++)
+			{
+				for (unsigned int j = 0; j < 4; j++)
+				{
+					vertices[i*12 + j*3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
+					vertices[i * 12 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
+					vertices[i * 12 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
+
+				}
+			}
+		}
 	}
 }
