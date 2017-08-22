@@ -32,7 +32,7 @@ namespace Models {
 	{
 	}
 	Model::~Model()
-	{
+	{		glDeleteTextures(1, &lode.tex);
 		if (vertices != NULL)
 			delete(vertices);
 		if (normals != NULL)
@@ -46,25 +46,35 @@ namespace Models {
 	}
 	Model::Model(char* path)
 	{
+		if(!lodepng::decode(lode.data, lode.width, lode.height, "BotellaText.png"))
+			cout<<"Unable to lode texture from" << path;
+		else {
+			glGenTextures(1, &lode.tex);
+			glBindTexture(GL_TEXTURE_2D, lode.tex);
+			glTexImage2D(GL_TEXTURE_2D, 0, 4, lode.width, lode.height, 0,
+				GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*)(lode.data.data()));
+		}
 		obj_scene_data data;
 		if (!parse_obj_scene(&data, path))	//loadOBJ "Corona/Corona.obj"
 			throw EXCEPTION_BREAKPOINT;
 		if (data.face_list[0]->vertex_count == 3) {
-			vertexCount = data.face_count;
+			vertexCount = 3 * data.face_count;
 			vertices = new float[9 * data.face_count];
 			for (unsigned int i = 0; i < data.face_count; i++)
 			{
-				for (unsigned int j = 0; j < 3; i++)
+				for (unsigned int j = 0; j < 3; j++)
 				{
-					vertices[i*9 + j*3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
+					vertices[i * 9 + j * 3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
 					vertices[i * 9 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
 					vertices[i * 9 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
+
 				}
 			}
 		}
 		if (data.face_list[0]->vertex_count == 4) {
 			vertexCount = data.face_count;
 			vertices = new float[12 * data.face_count];
+			texCoords = new float[12 * data.face_count];
 			for (unsigned int i = 0; i < data.face_count; i++)
 			{
 				for (unsigned int j = 0; j < 4; j++)
@@ -72,6 +82,10 @@ namespace Models {
 					vertices[i*12 + j*3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
 					vertices[i * 12 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
 					vertices[i * 12 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
+
+					texCoords[i * 12 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
+					texCoords[i * 12 + j * 3 + 1] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
+					texCoords[i * 12 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
 
 				}
 			}

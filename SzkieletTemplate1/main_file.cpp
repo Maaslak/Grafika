@@ -76,6 +76,8 @@ void initOpenGLProgram(GLFWwindow* window) {
 	glEnable(GL_LIGHT0); //W³¹cz zerowe Ÿród³o œwiat³a
 	glEnable(GL_DEPTH_TEST); //W³¹cz u¿ywanie budora g³êbokoœci
 	glEnable(GL_COLOR_MATERIAL); //W³¹cz œledzenie kolorów przez materia³
+	glEnable(GL_TEXTURE_2D);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	bot = new Models::Bottle("Corona/Corona.obj");
 }
@@ -107,16 +109,19 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 	//2. Rysowanie modelu
 	glEnableClientState(GL_VERTEX_ARRAY); //Podczas rysowania u¿ywaj tablicy wierzcho³ków
-	glEnableClientState(GL_COLOR_ARRAY); //Podczas rysowania u¿ywaj tablicy kolorów
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	//glEnableClientState(GL_COLOR_ARRAY); //Podczas rysowania u¿ywaj tablicy kolorów
 
 	glVertexPointer(3, GL_FLOAT, 0, bot->vertices); //Ustaw tablicê myCubeVertices jako tablicê wierzcho³ków
-	glColorPointer(3, GL_FLOAT, 0, myCubeColors); //Ustaw tablicê myCubeColors jako tablicê kolorów
+	//glColorPointer(3, GL_FLOAT, 0, myCubeColors); //Ustaw tablicê myCubeColors jako tablicê kolorów
+	glTexCoordPointer(2, GL_FLOAT, 0, bot->texCoords);
 
 	glDrawArrays(GL_QUADS, 0, bot->vertexCount); //Rysuj model
 
 												  //Posprz¹taj po sobie
 	glDisableClientState(GL_VERTEX_ARRAY);
-	glDisableClientState(GL_COLOR_ARRAY);
+	//glDisableClientState(GL_COLOR_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
 
 
@@ -128,7 +133,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 
 int main(void)
-{
+ {
 	GLFWwindow* window; //WskaŸnik na obiekt reprezentuj¹cy okno
 
 	glfwSetErrorCallback(error_callback);//Zarejestruj procedurê obs³ugi b³êdów

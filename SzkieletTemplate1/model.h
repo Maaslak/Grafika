@@ -32,8 +32,15 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include "constants.h"
 #include <stdio.h>
 #include "objTester\obj_parser.h"
+#include "lodepng.h"
 
 using namespace std;
+
+typedef struct tex_type {
+	std::vector<unsigned char> data;
+	unsigned width, height;
+	GLuint tex;
+};
 
 namespace Models {
 
@@ -45,6 +52,8 @@ namespace Models {
 			float *vertexNormals;
 			float *texCoords;
 			float *colors;
+
+			tex_type lode;
 					
 			virtual void drawSolid()=0;
 			virtual void drawWire();
