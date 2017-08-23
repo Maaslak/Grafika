@@ -297,14 +297,12 @@ int obj_parse_obj_file(obj_growable_scene_data *growable_data, char *filename)
 	char *current_token = NULL;
 	char current_line[OBJ_LINE_SIZE];
 	int line_number = 0;
-	// open scene
 	obj_file_stream = fopen( filename, "r");
 	if(obj_file_stream == 0)
 	{
 		fprintf(stderr, "Error reading file: %s\n", filename);
 		return 0;
 	}
-
 /*		
 	extreme_dimensions[0].x = INFINITY; extreme_dimensions[0].y = INFINITY; extreme_dimensions[0].z = INFINITY;
 	extreme_dimensions[1].x = -INFINITY; extreme_dimensions[1].y = -INFINITY; extreme_dimensions[1].z = -INFINITY;

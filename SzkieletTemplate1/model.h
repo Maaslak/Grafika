@@ -38,7 +38,7 @@ using namespace std;
 
 typedef struct tex_type {
 	std::vector<unsigned char> data;
-	unsigned width, height;
+	unsigned width, height, depth;
 	GLuint tex;
 };
 
@@ -60,7 +60,7 @@ namespace Models {
 
 			Model();
 			~Model();
-			Model(char * path);
+			Model(char *, char *);
 
 	};
 }

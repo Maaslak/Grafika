@@ -6,7 +6,7 @@ namespace Models {
 	class Bottle : public Model {
 		public:
 			virtual void drawSolid();
-			Bottle(char* path):Model(path) {
+			Bottle(char* path, char* texpath):Model(path, texpath) {
 			
 		}
 	};

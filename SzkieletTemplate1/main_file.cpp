@@ -2,12 +2,9 @@
 
 #include <stdio.h>
 #include "GL/glew.h"
-//#include "GL/glut.h"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
-//#include <stdio.h>
-
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include "lodepng.h"
@@ -77,9 +74,9 @@ void initOpenGLProgram(GLFWwindow* window) {
 	glEnable(GL_DEPTH_TEST); //W³¹cz u¿ywanie budora g³êbokoœci
 	glEnable(GL_COLOR_MATERIAL); //W³¹cz œledzenie kolorów przez materia³
 	glEnable(GL_TEXTURE_2D);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	bot = new Models::Bottle("Corona/Corona.obj");
+
+	bot = new Models::Bottle("Corona/Corona.obj", "Corona/BotellaText.png");
 }
 
 //Procedura rysuj¹ca zawartoœæ sceny
@@ -106,7 +103,10 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 	M = rotate(M, angle_y, vec3(0.0f, 1.0f, 0.0f));
 	M = scale(M, vec3(0.1f, 0.1f, 0.1f));
 	glLoadMatrixf(value_ptr(V*M));
+	
 
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	//2. Rysowanie modelu
 	glEnableClientState(GL_VERTEX_ARRAY); //Podczas rysowania u¿ywaj tablicy wierzcho³ków
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -114,7 +114,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 	glVertexPointer(3, GL_FLOAT, 0, bot->vertices); //Ustaw tablicê myCubeVertices jako tablicê wierzcho³ków
 	//glColorPointer(3, GL_FLOAT, 0, myCubeColors); //Ustaw tablicê myCubeColors jako tablicê kolorów
-	glTexCoordPointer(2, GL_FLOAT, 0, bot->texCoords);
+	glTexCoordPointer(3, GL_FLOAT, 0, bot->texCoords);
 
 	glDrawArrays(GL_QUADS, 0, bot->vertexCount); //Rysuj model
 
@@ -143,7 +143,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	window = glfwCreateWindow(500, 500, "OpenGL", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
+	window = glfwCreateWindow(1000, 1000, "OpenGL", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
 
 	if (!window) //Je¿eli okna nie uda³o siê utworzyæ, to zamknij program
 	{
