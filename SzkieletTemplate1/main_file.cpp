@@ -21,6 +21,12 @@ float aspect = 1.0f; //Aktualny stosunek szerokoœci do wysokoœci okna
 float speed_x = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³ osi x
 float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³ osi y
 
+				   // camera
+glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
+
 Models::Bottle* bot;
 
 
@@ -59,6 +65,16 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		if (key == GLFW_KEY_UP) speed_x = 0;
 		if (key == GLFW_KEY_DOWN) speed_x = 0;
 	}
+
+	float cameraSpeed = 2.5 * glfwGetTime();
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		cameraPos += cameraSpeed * cameraFront;
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		cameraPos -= cameraSpeed * cameraFront;
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
 //Procedura inicjuj¹ca
@@ -87,10 +103,11 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 														//***Przygotowanie do rysowania****
 	mat4 P = perspective(50.0f*PI / 180.0f, aspect, 1.0f, 50.0f); //Wylicz macierz rzutowania P
-	mat4 V = lookAt( //Wylicz macierz widoku
+	mat4 V = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); 
+	/*lookAt( //Wylicz macierz widoku
 		vec3(0.0f, 0.0f, -5.0f),
 		vec3(0.0f, 0.0f, 0.0f),
-		vec3(0.0f, 1.0f, 0.0f));
+		vec3(0.0f, 1.0f, 0.0f));*/
 	glMatrixMode(GL_PROJECTION); //W³¹cz tryb modyfikacji macierzy rzutomainwania
 	glLoadMatrixf(value_ptr(P)); //Za³aduj macierz rzutowania
 	glMatrixMode(GL_MODELVIEW);  //W³¹cz tryb modyfikacji macierzy model-widok

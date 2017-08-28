@@ -68,11 +68,11 @@ namespace Models {
 				for (unsigned int j = 0; j < 3; j++)
 				{
 					vertices[i * 9 + j * 3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
-					vertices[i * 9 + j * 3 + 1] = -data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
+					vertices[i * 9 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
 					vertices[i * 9 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
 
 					texCoords[i * 9 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
-					texCoords[i * 9 + j * 3 + 1] = -data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
+					texCoords[i * 9 + j * 3 + 1] = 1.0f-data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
 					texCoords[i * 9 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
 
 					//normals[i * 9 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
@@ -92,11 +92,11 @@ namespace Models {
 				for (unsigned int j = 0; j < 4; j++)
 				{
 					vertices[i*12 + j*3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
-					vertices[i * 12 + j * 3 + 1] = -data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
+					vertices[i * 12 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
 					vertices[i * 12 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
 
 					texCoords[i * 12 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
-					texCoords[i * 12 + j * 3 + 1] = -data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
+					texCoords[i * 12 + j * 3 + 1] = 1.0f-data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
 					texCoords[i * 12 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
 
 					//normals[i * 12 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
