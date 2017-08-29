@@ -25,7 +25,10 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+glm::vec3 deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
 
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
 
 Models::Bottle* bot;
 
@@ -66,15 +69,17 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		if (key == GLFW_KEY_DOWN) speed_x = 0;
 	}
 
+	deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
 	float cameraSpeed = 2.5 * glfwGetTime();
+
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		cameraPos += cameraSpeed * cameraFront;
+		 deltacameraPos+= cameraSpeed * cameraFront;
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		cameraPos -= cameraSpeed * cameraFront;
+		deltacameraPos -= cameraSpeed * cameraFront;
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+		deltacameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+		deltacameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
 //Procedura inicjuj¹ca
@@ -102,7 +107,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Wyczyœæ bufor kolorów (czyli przygotuj "p³ótno" do rysowania)
 
 														//***Przygotowanie do rysowania****
-	mat4 P = perspective(50.0f*PI / 180.0f, aspect, 1.0f, 50.0f); //Wylicz macierz rzutowania P
+	mat4 P = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 	mat4 V = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); 
 	/*lookAt( //Wylicz macierz widoku
 		vec3(0.0f, 0.0f, -5.0f),
@@ -124,22 +129,8 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	//2. Rysowanie modelu
-	glEnableClientState(GL_VERTEX_ARRAY); //Podczas rysowania u¿ywaj tablicy wierzcho³ków
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	//glEnableClientState(GL_COLOR_ARRAY); //Podczas rysowania u¿ywaj tablicy kolorów
 
-	glVertexPointer(3, GL_FLOAT, 0, bot->vertices); //Ustaw tablicê myCubeVertices jako tablicê wierzcho³ków
-	//glColorPointer(3, GL_FLOAT, 0, myCubeColors); //Ustaw tablicê myCubeColors jako tablicê kolorów
-	glTexCoordPointer(3, GL_FLOAT, 0, bot->texCoords);
-
-	glDrawArrays(GL_QUADS, 0, bot->vertexCount); //Rysuj model
-
-												  //Posprz¹taj po sobie
-	glDisableClientState(GL_VERTEX_ARRAY);
-	//glDisableClientState(GL_COLOR_ARRAY);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
+	bot->drawSolid();
 
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
@@ -160,7 +151,7 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	window = glfwCreateWindow(1000, 1000, "OpenGL", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
+	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Galeria alkoholi", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
 
 	if (!window) //Je¿eli okna nie uda³o siê utworzyæ, to zamknij program
 	{
@@ -192,6 +183,7 @@ int main(void)
 		glfwSetTime(0); //Wyzeruj timer
 		drawScene(window, angle_x, angle_y); //Wykonaj procedurê rysuj¹c¹
 		glfwPollEvents(); //Wykonaj procedury callback w zaleznoœci od zdarzeñ jakie zasz³y.
+		cameraPos += deltacameraPos;
 	}
 
 	delete(bot);

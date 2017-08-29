@@ -163,7 +163,6 @@
     <ClCompile Include="objTester\string_extra.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="teapot.cpp" />
-    <ClCompile Include="torus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="allmodels.h" />
@@ -180,7 +179,6 @@
     <ClInclude Include="objTester\string_extra.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="teapot.h" />
-    <ClInclude Include="torus.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="gpl.txt" />

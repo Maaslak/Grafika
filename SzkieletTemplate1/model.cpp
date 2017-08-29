@@ -28,22 +28,45 @@ namespace Models {
 		
 		glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
 	}
+
+	void Model::drawSolid() {
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		glEnableClientState(GL_NORMAL_ARRAY);
+
+		glVertexPointer(3, GL_FLOAT, 0, vertices); 
+		glTexCoordPointer(3, GL_FLOAT, 0, texCoords);
+		glNormalPointer(GL_FLOAT, sizeof(float) * 4, vertexNormals);
+
+		if (istriangle)
+			glDrawArrays(GL_TRIANGLES, 0, vertexCount); //Rysuj model
+		else
+			glDrawArrays(GL_QUADS, 0, vertexCount);//Posprzątaj po sobie
+		glDisableClientState(GL_VERTEX_ARRAY);
+		glDisableClientState(GL_NORMAL_ARRAY);
+		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		
+	}
+
 	Model::Model()
 	{
+		isdynamic = false;
 	}
 	Model::~Model()
 	{
 		glDeleteTextures(1, &lode.tex);
-		if (vertices != NULL)
-			delete(vertices);
-		if (normals != NULL)
+		if (isdynamic) {
+			if (vertices != NULL)
+				delete(vertices);
+			if (normals != NULL)
 				delete(normals);
-		if (vertexNormals != NULL)
-			delete(vertexNormals);
-		if (texCoords != NULL)
-			delete(texCoords);
-		if (colors != NULL)
-			delete(colors);
+			if (vertexNormals != NULL)
+				delete(vertexNormals);
+			if (texCoords != NULL)
+				delete(texCoords);
+			if (colors != NULL)
+				delete(colors);
+		}
 	}
 	Model::Model(char* path, char* texpath = NULL)
 	{
@@ -58,6 +81,7 @@ namespace Models {
 		obj_scene_data data;
 		if (!parse_obj_scene(&data, path))	//loadOBJ "Corona/Corona.obj"
 			throw EXCEPTION_BREAKPOINT;
+		isdynamic = true;
 		if (data.face_list[0]->vertex_count == 3) {
 			vertexCount = 3 * data.face_count;
 			vertices = new float[9 * data.face_count];
@@ -83,6 +107,7 @@ namespace Models {
 			}
 		}
 		if (data.face_list[0]->vertex_count == 4) {
+			istriangle = false;
 			vertexCount = data.face_count;
 			vertices = new float[12 * data.face_count];
 			texCoords = new float[12 * data.face_count];

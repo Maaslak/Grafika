@@ -54,8 +54,10 @@ namespace Models {
 			float *colors;
 
 			tex_type lode;
+			bool isdynamic = false;
+			bool istriangle = true;
 					
-			virtual void drawSolid()=0;
+			virtual void drawSolid();
 			virtual void drawWire();
 
 			Model();
