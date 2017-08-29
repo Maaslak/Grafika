@@ -14,8 +14,15 @@ c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1
 c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
 c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
 c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\model.h(43): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(73): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(181): warning C4244: "+=": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(182): warning C4244: "+=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(78): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(94): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(95): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(99): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(100): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(101): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(102): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(104): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(221): warning C4244: "+=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(222): warning C4244: "+=": konwersja z "double" do "float", możliwa utrata danych
   SzkieletTemplate1.vcxproj -> C:\Users\Maaslak\Documents\Visual Studio 2017\Projects\Grafika\Debug\GrafikaProj.exe
   SzkieletTemplate1.vcxproj -> C:\Users\Maaslak\Documents\Visual Studio 2017\Projects\Grafika\Debug\GrafikaProj.pdb (Partial PDB)

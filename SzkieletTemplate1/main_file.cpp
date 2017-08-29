@@ -15,8 +15,6 @@
 
 
 
-using namespace glm;
-
 float aspect = 1.0f; //Aktualny stosunek szerokoœci do wysokoœci okna
 float speed_x = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³ osi x
 float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³ osi y
@@ -29,6 +27,13 @@ glm::vec3 deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+
+bool firstMouse = true;
+float yaw = -90.0f;	// yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right so we initially rotate a bit to the left.
+float pitch = 0.0f;
+float lastX = 800.0f / 2.0;
+float lastY = 600.0 / 2.0;
+float fov = 45.0f;
 
 Models::Bottle* bot;
 
@@ -82,11 +87,46 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		deltacameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    if(firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+  
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos; 
+    lastX = xpos;
+    lastY = ypos;
+
+    float sensitivity = 0.05;
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
+
+    yaw   += xoffset;
+    pitch += yoffset;
+
+    if(pitch > 89.0f)
+        pitch = 89.0f;
+    if(pitch < -89.0f)
+        pitch = -89.0f;
+
+    glm::vec3 front;
+    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.y = sin(glm::radians(pitch));
+    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    cameraFront = glm::normalize(front);
+}  
+
 //Procedura inicjuj¹ca
 void initOpenGLProgram(GLFWwindow* window) {
 	//************Tutaj umieszczaj kod, który nale¿y wykonaæ raz, na pocz¹tku programu************
 	glfwSetFramebufferSizeCallback(window, windowResize); //Zarejestruj procedurê obs³ugi zmiany rozdzielczoœci bufora ramki
+	
 	glfwSetKeyCallback(window, key_callback); //Zarejestruj procedurê obs³ugi klawiatury
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	glClearColor(0, 0, 0, 1); //Ustaw kolor czyszczenia ekranu
 
@@ -107,8 +147,8 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Wyczyœæ bufor kolorów (czyli przygotuj "p³ótno" do rysowania)
 
 														//***Przygotowanie do rysowania****
-	mat4 P = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-	mat4 V = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); 
+	glm::mat4 P = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+	glm::mat4 V = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 	/*lookAt( //Wylicz macierz widoku
 		vec3(0.0f, 0.0f, -5.0f),
 		vec3(0.0f, 0.0f, 0.0f),
@@ -120,10 +160,10 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 								 //Rysowanie kostki
 								 //1. Wyliczenie i za³adowanie macierzy modelu
-	mat4 M = mat4(1.0f);
-	M = rotate(M, angle_x, vec3(1.0f, 0.0f, 0.0f));
-	M = rotate(M, angle_y, vec3(0.0f, 1.0f, 0.0f));
-	M = scale(M, vec3(0.1f, 0.1f, 0.1f));
+	glm::mat4 M = glm::mat4(1.0f);
+	M = glm::rotate(M, angle_x, glm::vec3(1.0f, 0.0f, 0.0f));
+	M = glm::rotate(M, angle_y, glm::vec3(0.0f, 1.0f, 0.0f));
+	M = glm::scale(M, glm::vec3(0.1f, 0.1f, 0.1f));
 	glLoadMatrixf(value_ptr(V*M));
 	
 
@@ -183,7 +223,9 @@ int main(void)
 		glfwSetTime(0); //Wyzeruj timer
 		drawScene(window, angle_x, angle_y); //Wykonaj procedurê rysuj¹c¹
 		glfwPollEvents(); //Wykonaj procedury callback w zaleznoœci od zdarzeñ jakie zasz³y.
+		glfwSetCursorPosCallback(window, mouse_callback);
 		cameraPos += deltacameraPos;
+
 	}
 
 	delete(bot);
