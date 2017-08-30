@@ -70,8 +70,9 @@ namespace Models {
 	}
 	Model::Model(char* path, char* texpath = NULL)
 	{
-		if(lodepng::decode(lode.data, lode.width, lode.height, texpath))
-			cout<<"Unable to load texture from" << path;
+		if(texpath != NULL)
+			if(lodepng::decode(lode.data, lode.width, lode.height, texpath))
+				cout<<"Unable to load texture from" << path;
 		else {
 			glGenTextures(1, &lode.tex);
 			glBindTexture(GL_TEXTURE_2D, lode.tex);
@@ -86,7 +87,7 @@ namespace Models {
 			vertexCount = 3 * data.face_count;
 			vertices = new float[9 * data.face_count];
 			texCoords = new float[9 * data.face_count];
-			//normals = new float[9 * data.face_count];
+			normals = new float[9 * data.face_count];
 			for (unsigned int i = 0; i < data.face_count; i++)
 			{
 				for (unsigned int j = 0; j < 3; j++)
@@ -95,13 +96,16 @@ namespace Models {
 					vertices[i * 9 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
 					vertices[i * 9 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
 
-					texCoords[i * 9 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
-					texCoords[i * 9 + j * 3 + 1] = 1.0f-data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
-					texCoords[i * 9 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
-
-					//normals[i * 9 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
-					//normals[i * 9 + j * 3 + 1] = -data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[1];
-					//normals[i * 9 + j * 3 + 2] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[2];
+					if (data.vertex_texture_count != 0) {
+						texCoords[i * 9 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
+						texCoords[i * 9 + j * 3 + 1] = 1.0f - data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
+						texCoords[i * 9 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
+					}
+					if (data.vertex_normal_count != 0) {
+						normals[i * 9 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
+						normals[i * 9 + j * 3 + 1] = -data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[1];
+						normals[i * 9 + j * 3 + 2] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[2];
+					}
 
 				}
 			}
@@ -111,7 +115,7 @@ namespace Models {
 			vertexCount = data.face_count;
 			vertices = new float[12 * data.face_count];
 			texCoords = new float[12 * data.face_count];
-			//normals = new float[12 * data.face_count];
+			normals = new float[12 * data.face_count];
 			for (unsigned int i = 0; i < data.face_count; i++)
 			{
 				for (unsigned int j = 0; j < 4; j++)
@@ -120,13 +124,16 @@ namespace Models {
 					vertices[i * 12 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
 					vertices[i * 12 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
 
-					texCoords[i * 12 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
-					texCoords[i * 12 + j * 3 + 1] = 1.0f-data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
-					texCoords[i * 12 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
-
-					//normals[i * 12 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
-					//normals[i * 12 + j * 3 + 1] = -data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[1];
-					//normals[i * 12 + j * 3 + 2] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[2];
+					if (data.vertex_texture_count != 0) {
+						texCoords[i * 12 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
+						texCoords[i * 12 + j * 3 + 1] = 1.0f - data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
+						texCoords[i * 12 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
+					}
+					if (data.vertex_normal_count != 0) {
+						normals[i * 12 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
+						normals[i * 12 + j * 3 + 1] = -data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[1];
+						normals[i * 12 + j * 3 + 2] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[2];
+					}
 				}
 			}
 		}

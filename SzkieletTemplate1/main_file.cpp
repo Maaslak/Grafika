@@ -75,7 +75,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 
 	deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	float cameraSpeed = 2.5 * glfwGetTime();
+	float cameraSpeed = 2.5f * glfwGetTime();
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		 deltacameraPos+= cameraSpeed * cameraFront;
@@ -137,7 +137,12 @@ void initOpenGLProgram(GLFWwindow* window) {
 	glEnable(GL_TEXTURE_2D);
 
 
-	bot = new Models::Bottle("Corona/Corona.obj", "Corona/BotellaText.png");
+	bot = new Models::Bottle
+	("room/OBJ/Room1.obj", "Corona/Great Hall/3bbce3da.png");
+	//("can/can1.obj", "Corona/Great Hall/3bbce3da.png");
+	//("Corona/Corona.obj", "Corona/BotellaText.png");
+	//("eb_metal_shelf_01/eb_metal_shelf_02.obj", "Corona/Great Hall/3bbce3da.png");
+	//("Corona/Great Hall/Great Hall Model.obj", "Corona/Great Hall/3bbce3da.png");
 }
 
 //Procedura rysuj¹ca zawartoœæ sceny

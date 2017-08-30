@@ -160,12 +160,22 @@ obj_light_disc* obj_parse_light_disc(obj_growable_scene_data *scene)
 	return obj;
 }
 
+obj_vector* obj_parse_vector_tex() {
+	obj_vector *v = (obj_vector*)malloc(sizeof(obj_vector));
+	v->e[0] = atof(strtok(NULL, WHITESPACE));
+	v->e[1] = atof(strtok(NULL, WHITESPACE));
+	v->e[2] = 0.0f;
+
+	return v;
+}
+
 obj_vector* obj_parse_vector()
 {
 	obj_vector *v = (obj_vector*)malloc(sizeof(obj_vector));
 	v->e[0] = atof( strtok(NULL, WHITESPACE));
 	v->e[1] = atof( strtok(NULL, WHITESPACE));
 	v->e[2] = atof( strtok(NULL, WHITESPACE));
+
 	return v;
 }
 
@@ -338,7 +348,7 @@ int obj_parse_obj_file(obj_growable_scene_data *growable_data, char *filename)
 		
 		else if( strequal(current_token, "vt") ) //process vertex texture
 		{
-			list_add_item(&growable_data->vertex_texture_list,  obj_parse_vector(), NULL);
+			list_add_item(&growable_data->vertex_texture_list,  obj_parse_vector_tex(), NULL);
 		}
 		
 		else if( strequal(current_token, "f") ) //process face
