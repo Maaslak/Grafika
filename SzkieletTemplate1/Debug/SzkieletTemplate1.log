@@ -1,28 +1,28 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: Katalog pośredni (Debug\) zawiera pliki udostępnione z innego projektu (SzkieletTemplate1.vcxproj). Może to spowodować niepoprawne zachowanie podczas oczyszczania i ponownej kompilacji.
   main_file.cpp
 c:\program files (x86)\windows kits\10\include\10.0.15063.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
-  c:\users\maaslak\documents\visual studio 2017\projects\grafika\packages\glfw.3.2.1\build\native\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(18): warning C4091: "typedef ": zignorowano na lewo od "obj_face" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(27): warning C4091: "typedef ": zignorowano na lewo od "obj_sphere" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(36): warning C4091: "typedef ": zignorowano na lewo od "obj_plane" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(41): warning C4091: "typedef ": zignorowano na lewo od "obj_vector" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(56): warning C4091: "typedef ": zignorowano na lewo od "obj_material" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(63): warning C4091: "typedef ": zignorowano na lewo od "obj_camera" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(69): warning C4091: "typedef ": zignorowano na lewo od "obj_light_point" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(76): warning C4091: "typedef ": zignorowano na lewo od "obj_light_disc" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(82): warning C4091: "typedef ": zignorowano na lewo od "obj_light_quad" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\model.h(43): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(78): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(94): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(95): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(99): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(100): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(101): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(102): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(104): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(226): warning C4244: "+=": konwersja z "double" do "float", możliwa utrata danych
-c:\users\maaslak\documents\visual studio 2017\projects\grafika\szkielettemplate1\main_file.cpp(227): warning C4244: "+=": konwersja z "double" do "float", możliwa utrata danych
-  SzkieletTemplate1.vcxproj -> C:\Users\Maaslak\Documents\Visual Studio 2017\Projects\Grafika\Debug\GrafikaProj.exe
-  SzkieletTemplate1.vcxproj -> C:\Users\Maaslak\Documents\Visual Studio 2017\Projects\Grafika\Debug\GrafikaProj.pdb (Partial PDB)
+  c:\users\blagej\source\repos\szkielettemplate1\packages\glfw.3.2.1\build\native\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(18): warning C4091: "typedef ": zignorowano na lewo od "obj_face" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(27): warning C4091: "typedef ": zignorowano na lewo od "obj_sphere" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(36): warning C4091: "typedef ": zignorowano na lewo od "obj_plane" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(41): warning C4091: "typedef ": zignorowano na lewo od "obj_vector" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(56): warning C4091: "typedef ": zignorowano na lewo od "obj_material" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(63): warning C4091: "typedef ": zignorowano na lewo od "obj_camera" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(69): warning C4091: "typedef ": zignorowano na lewo od "obj_light_point" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(76): warning C4091: "typedef ": zignorowano na lewo od "obj_light_disc" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(82): warning C4091: "typedef ": zignorowano na lewo od "obj_light_quad" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\model.h(43): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(107): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(123): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(124): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(128): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(129): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(130): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(131): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(133): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(325): warning C4156: usunięcie wyrażenia tablicowego bez użycia formularza tablicy "delete"; zastąpiono formularz tablicy
+c:\users\blagej\source\repos\szkielettemplate1\szkielettemplate1\main_file.cpp(325): warning C4154: usunięcie wyrażenia tablicowego; dostarczono konwersji do wskaźnika
+  SzkieletTemplate1.vcxproj -> C:\Users\Blagej\source\repos\SzkieletTemplate1\Debug\GrafikaProj.exe
+  SzkieletTemplate1.vcxproj -> C:\Users\Blagej\source\repos\SzkieletTemplate1\Debug\GrafikaProj.pdb (Partial PDB)

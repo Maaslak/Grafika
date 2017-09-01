@@ -30,6 +30,7 @@ namespace Models {
 	}
 
 	void Model::drawSolid() {
+		cout << "rysowanie";
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState(GL_NORMAL_ARRAY);
@@ -60,16 +61,17 @@ namespace Models {
 				delete(vertices);
 			if (normals != NULL)
 				delete(normals);
-			if (vertexNormals != NULL)
-				delete(vertexNormals);
+			//if (vertexNormals != NULL)
+			//	delete(vertexNormals);
 			if (texCoords != NULL)
 				delete(texCoords);
-			if (colors != NULL)
-				delete(colors);
+			//if (colors != NULL)
+			//	delete(colors);
 		}
 	}
 	Model::Model(char* path, char* texpath = NULL)
 	{
+		cout << "tworzenie";
 		if(texpath != NULL)
 			if(lodepng::decode(lode.data, lode.width, lode.height, texpath))
 				cout<<"Unable to load texture from" << path;

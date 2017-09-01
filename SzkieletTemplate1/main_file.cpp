@@ -18,7 +18,34 @@
 float aspect = 1.0f; //Aktualny stosunek szerokoœci do wysokoœci okna
 float speed_x = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³ osi x
 float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³ osi y
+//const int ilosc = 100;
 
+/*char* ksztalty[60] = { "Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj",
+"Corona/Corona.obj","Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" ,"Corona/Corona.obj" };
+
+char* tekstury[60] = { "Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png",
+"Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png","Corona/BotellaText.png"};
+*/
 				   // camera
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
@@ -35,7 +62,9 @@ float lastX = 800.0f / 2.0;
 float lastY = 600.0 / 2.0;
 float fov = 45.0f;
 
-Models::Bottle* bot;
+Models::Shelf* shelf[3];
+//Models::Bottle* bot;
+//Models::Bottle* bot[ilosc];
 
 
 void displayFrame() {
@@ -75,7 +104,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 
 	deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	float cameraSpeed = 2.5f * glfwGetTime();
+	float cameraSpeed = 10.0f * glfwGetTime();
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		 deltacameraPos+= cameraSpeed * cameraFront;
@@ -136,17 +165,31 @@ void initOpenGLProgram(GLFWwindow* window) {
 	glEnable(GL_COLOR_MATERIAL); //W³¹cz œledzenie kolorów przez materia³
 	glEnable(GL_TEXTURE_2D);
 
-
-	bot = new Models::Bottle
-	("room/OBJ/Room1.obj", "Corona/Great Hall/3bbce3da.png");
-	//("can/can1.obj", "Corona/Great Hall/3bbce3da.png");
-	//("Corona/Corona.obj", "Corona/BotellaText.png");
+	
+	//bot = new Models::Bottle
+	//("room/OBJ/Room.obj", "Corona/Great Hall/3bbce3da.png");
+	//("can/can.obj", "Corona/BotellaText.png");
+	//("Corona/eb_metal_shelf_02.obj", "Corona/BotellaText.png");
+	//("Corona/can/can_reducedfaces_repaired.obj", "Corona/BotellaText.png");
 	//("eb_metal_shelf_01/eb_metal_shelf_02.obj", "Corona/Great Hall/3bbce3da.png");
 	//("Corona/Great Hall/Great Hall Model.obj", "Corona/Great Hall/3bbce3da.png");
+	
+	for (int i = 0; i < 5; i++) {
+		shelf[i] = new Models::Shelf
+		("Corona/eb_metal_shelf_02.obj", "Corona/White Wood.png");
+	}
+	
+
+	/*for (int i = 0; i < ilosc; i++) {
+		bot[i] = new Models::Bottle("Corona/Corona.obj", "Corona/BotellaText.png");
+	}*/
 }
 
+
+
+
 //Procedura rysuj¹ca zawartoœæ sceny
-void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
+void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	//************Tutaj umieszczaj kod rysuj¹cy obraz******************l
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Wyczyœæ bufor kolorów (czyli przygotuj "p³ótno" do rysowania)
@@ -165,18 +208,61 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 								 //Rysowanie kostki
 								 //1. Wyliczenie i za³adowanie macierzy modelu
-	glm::mat4 M = glm::mat4(1.0f);
+	//glm::mat4 M = glm::mat4(1.0f);
+	//M = glm::rotate(M, 5.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+
 	M = glm::rotate(M, angle_x, glm::vec3(1.0f, 0.0f, 0.0f));
 	M = glm::rotate(M, angle_y, glm::vec3(0.0f, 1.0f, 0.0f));
-	M = glm::scale(M, glm::vec3(0.1f, 0.1f, 0.1f));
+	M = glm::scale(M, glm::vec3(0.2f, 0.2f, 0.2f));
 	glLoadMatrixf(value_ptr(V*M));
+
 	
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	bot->drawSolid();
+	for (int i = 0; i < 3; i++) {
+		shelf[i]->draw(V, M);
+		M = glm::translate(M, glm::vec3(120.0f, 0.0f, 0.0f));
+		glLoadMatrixf(value_ptr(V*M));
+	}
+	
+	
+	//glm::mat4 M1;
+	/*int sciana[3];
+	sciana[1] = ilosc / 5 * 2;
+	sciana[2] = ilosc / 5;
+	sciana[3] = ilosc / 5 * 2;*/
+	/*for (int i = 0; i < ilosc/(ilosc/4); i++) {
+		M1 = glm::translate(M, glm::vec3(0.0f, 0.0f, i * (-50) + 0.0f));
+		for (int j = 0; j < ilosc/4; j++) {
+			M1 = glm::translate(M1, glm::vec3(0.0f, 20.0f, 0.0f));
+			glLoadMatrixf(value_ptr(V*M1));
+			bot[i]->drawSolid();
+			
+		}
+	}*/
 
+/*	for (int i = 0; i < sciana[2] / (sciana[2] / 4); i++) {
+		M1 = glm::translate(M, glm::vec3(0.0f, sciana[1]*5+0.0f, i * (-50) + 0.0f));
+		for (int j = 0; j < sciana[2] / 4; j++) {
+			M1 = glm::translate(M1, glm::vec3(-20.0f, 0.0f, 0.0f));
+			glLoadMatrixf(value_ptr(V*M1));
+			bot[sciana[1]+i]->drawSolid();
+
+		}
+	}
+
+	for (int i = 0; i < sciana[3] / (sciana[3] / 4); i++) {
+		M1 = glm::translate(M, glm::vec3(sciana[2]*5+0.0f, sciana[1] * 5 + 0.0f, i * (-50) + 0.0f));
+		for (int j = 0; j < sciana[3] / 4; j++) {
+			M1 = glm::translate(M1, glm::vec3(0.0f, 0.0f, -20.0f));
+			glLoadMatrixf(value_ptr(V*M1));
+			bot[sciana[1]+sciana[2] + i]->drawSolid();
+
+		}
+	}
+	*/
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
 }
@@ -220,20 +306,23 @@ int main(void)
 	float angle_y = 0.0f; //Aktualny k¹t obrotu obiektu wokó³ osi y
 	glfwSetTime(0); //Wyzeruj timer
 
+	glm::mat4 M = glm::mat4(1.0f);
+	//M = glm::rotate(M, 3.14f, glm::vec3(1.0f, 0.0f, 0.0f));
+	M = glm::translate(M, glm::vec3(0.0f, -10.0f, -20.0f));
 					//G³ówna pêtla
 	while (!glfwWindowShouldClose(window)) //Tak d³ugo jak okno nie powinno zostaæ zamkniête
 	{
-		angle_x += speed_x*glfwGetTime(); //Oblicz przyrost k¹ta obrotu i zwiêksz aktualny k¹t
-		angle_y += speed_y*glfwGetTime(); //Oblicz przyrost k¹ta obrotu i zwiêksz aktualny k¹t
+		//angle_x += speed_x*glfwGetTime(); //Oblicz przyrost k¹ta obrotu i zwiêksz aktualny k¹t
+		//angle_y += speed_y*glfwGetTime(); //Oblicz przyrost k¹ta obrotu i zwiêksz aktualny k¹t
 		glfwSetTime(0); //Wyzeruj timer
-		drawScene(window, angle_x, angle_y); //Wykonaj procedurê rysuj¹c¹
+		drawScene(window, angle_x, angle_y,M); //Wykonaj procedurê rysuj¹c¹
 		glfwPollEvents(); //Wykonaj procedury callback w zaleznoœci od zdarzeñ jakie zasz³y.
 		glfwSetCursorPosCallback(window, mouse_callback);
 		cameraPos += deltacameraPos;
 
 	}
 
-	delete(bot);
+	delete(shelf);
 	glfwDestroyWindow(window); //Usuñ kontekst OpenGL i okno
 	glfwTerminate(); //Zwolnij zasoby zajête przez GLFW
 	exit(EXIT_SUCCESS);

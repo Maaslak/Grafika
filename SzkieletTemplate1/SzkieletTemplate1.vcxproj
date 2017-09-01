@@ -161,6 +161,7 @@
     <ClCompile Include="objTester\objTester.cpp" />
     <ClCompile Include="objTester\obj_parser.cpp" />
     <ClCompile Include="objTester\string_extra.cpp" />
+    <ClCompile Include="Shelf.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="teapot.cpp" />
   </ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="objTester\objLoader.h" />
     <ClInclude Include="objTester\obj_parser.h" />
     <ClInclude Include="objTester\string_extra.h" />
+    <ClInclude Include="Shelf.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="teapot.h" />
   </ItemGroup>

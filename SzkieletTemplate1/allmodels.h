@@ -26,5 +26,6 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include "teapot.h"
 #include "torus.h"
 #include "Bottle.h"
+#include "Shelf.h"
 
 #endif
