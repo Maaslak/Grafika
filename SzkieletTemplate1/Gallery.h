@@ -1,16 +1,17 @@
 #pragma once
 #include "model.h"
 #include "Bottle.h"
+#include "Shelf.h"
 
 namespace Models {
 
-	class Shelf : public Model {
+	class Gallery : public Model {
 	public:
 		char* path;
 		char* texpath;
-		Bottle* bot;
-		Shelf(char*, char*);
-		~Shelf();
+		Shelf* shelf;
+		Gallery(char*, char*);
+		~Gallery();
 		void draw(glm::mat4, glm::mat4);
 	};
 }

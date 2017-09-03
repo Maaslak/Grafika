@@ -61,12 +61,12 @@ namespace Models {
 				delete(vertices);
 			if (normals != NULL)
 				delete(normals);
-			//if (vertexNormals != NULL)
-			//	delete(vertexNormals);
+			if (vertexNormals != NULL)
+				delete(vertexNormals);
 			if (texCoords != NULL)
 				delete(texCoords);
-			//if (colors != NULL)
-			//	delete(colors);
+			if (colors != NULL)
+				delete(colors);
 		}
 	}
 	Model::Model(char* path, char* texpath = NULL)

@@ -62,9 +62,11 @@ float lastX = 800.0f / 2.0;
 float lastY = 600.0 / 2.0;
 float fov = 45.0f;
 
-Models::Shelf* shelf[3];
+//Models::Shelf* shelf[3];
+//Models::Shelf* shelf;
 //Models::Bottle* bot;
 //Models::Bottle* bot[ilosc];
+Models::Gallery* gallery;
 
 
 void displayFrame() {
@@ -169,20 +171,24 @@ void initOpenGLProgram(GLFWwindow* window) {
 	//bot = new Models::Bottle
 	//("room/OBJ/Room.obj", "Corona/Great Hall/3bbce3da.png");
 	//("can/can.obj", "Corona/BotellaText.png");
-	//("Corona/eb_metal_shelf_02.obj", "Corona/BotellaText.png");
+	//("Corona/Corona.obj", "Corona/BotellaText.png");
 	//("Corona/can/can_reducedfaces_repaired.obj", "Corona/BotellaText.png");
 	//("eb_metal_shelf_01/eb_metal_shelf_02.obj", "Corona/Great Hall/3bbce3da.png");
 	//("Corona/Great Hall/Great Hall Model.obj", "Corona/Great Hall/3bbce3da.png");
 	
-	for (int i = 0; i < 5; i++) {
+	/*for (int i = 0; i < 1; i++) {
 		shelf[i] = new Models::Shelf
 		("Corona/eb_metal_shelf_02.obj", "Corona/White Wood.png");
-	}
+	}*/
+	//shelf = new Models::Shelf
+	//("Corona/eb_metal_shelf_02.obj", "Corona/White Wood.png");
 	
 
 	/*for (int i = 0; i < ilosc; i++) {
 		bot[i] = new Models::Bottle("Corona/Corona.obj", "Corona/BotellaText.png");
 	}*/
+
+		gallery = new Models::Gallery("Corona/galeria.obj", "Corona/BotellaText.png");
 }
 
 
@@ -221,12 +227,14 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	for (int i = 0; i < 3; i++) {
+	/*for (int i = 0; i < 1; i++) {
 		shelf[i]->draw(V, M);
 		M = glm::translate(M, glm::vec3(120.0f, 0.0f, 0.0f));
 		glLoadMatrixf(value_ptr(V*M));
-	}
-	
+	}*/
+	//shelf->draw(V, M);
+
+	gallery->draw(V,M);
 	
 	//glm::mat4 M1;
 	/*int sciana[3];
@@ -322,7 +330,7 @@ int main(void)
 
 	}
 
-	delete(shelf);
+	delete(gallery);
 	glfwDestroyWindow(window); //Usuñ kontekst OpenGL i okno
 	glfwTerminate(); //Zwolnij zasoby zajête przez GLFW
 	exit(EXIT_SUCCESS);

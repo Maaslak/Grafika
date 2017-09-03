@@ -13,14 +13,23 @@ namespace Models {
 	Shelf::Shelf(char* path,char* texpath):Model(path, texpath) {
 		cout << path;
 		cout << texpath;
-		for (int i = 0; i < 20; i++) {
+		/*for (int i = 0; i < 20; i++) {
 			bot[i] = new Models::Bottle
 			("Corona/Corona.obj", "Corona/BotellaText.png");
+		}*/
+		bot = new Models::Bottle
+		("Corona/Corona.obj", "Corona/BotellaText.png");
+	}
+	Shelf::~Shelf() {
+		for (int i = 0; i < 20; i++) {
+			delete(bot);
 		}
 	}
 	void Shelf::draw(glm::mat4 V, glm::mat4 M) {
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		this->drawSolid();
-		M = glm::rotate(M, 4.71f, glm::vec3(1.0f, 0.0f, 0.0f));
+		/*M = glm::rotate(M, 4.71f, glm::vec3(1.0f, 0.0f, 0.0f));
 		M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, 1.0f));
 		M = glm::translate(M, glm::vec3(-20.0f, -50.0f, 11.0f));
 		M = glm::scale(M, glm::vec3(0.8f, 0.8f, 0.8f));
@@ -36,6 +45,7 @@ namespace Models {
 				bot[i]->drawSolid();
 
 			}
-		}
+		}*/
+		bot->drawSolid();
 	}
 }
