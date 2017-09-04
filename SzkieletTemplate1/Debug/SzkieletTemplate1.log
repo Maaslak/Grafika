@@ -1,4 +1,235 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: Katalog pośredni (Debug\) zawiera pliki udostępnione z innego projektu (SzkieletTemplate1.vcxproj). Może to spowodować niepoprawne zachowanie podczas oczyszczania i ponownej kompilacji.
+  model.cpp
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(18): warning C4091: "typedef ": zignorowano na lewo od "obj_face" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(27): warning C4091: "typedef ": zignorowano na lewo od "obj_sphere" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(36): warning C4091: "typedef ": zignorowano na lewo od "obj_plane" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(41): warning C4091: "typedef ": zignorowano na lewo od "obj_vector" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(56): warning C4091: "typedef ": zignorowano na lewo od "obj_material" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(63): warning C4091: "typedef ": zignorowano na lewo od "obj_camera" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(69): warning C4091: "typedef ": zignorowano na lewo od "obj_light_point" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(76): warning C4091: "typedef ": zignorowano na lewo od "obj_light_disc" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(82): warning C4091: "typedef ": zignorowano na lewo od "obj_light_quad" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\bottle.h(6): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\bottle.h(9): error C2614: "Models::Bottle": niedozwolona inicjalizacja elementu członkowskiego: "Model" nie jest podstawowym lub elementem członkowskim
+c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(7): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(15): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(39): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(52): warning C4091: "typedef ": zignorowano na lewo od "mod" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(95): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(111): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(112): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(116): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(117): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(118): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(119): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(121): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(182): error C2065: "cout": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(199): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(203): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(204): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(205): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(208): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(209): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(210): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(213): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(214): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(215): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(227): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(231): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(232): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(233): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(236): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(237): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(238): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(241): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(242): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(243): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2039: "Model": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(13): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C3083: "Model" : symbol po lewej stronie "::" musi być typem
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2039: "models": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(13): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2065: "models": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2228: po lewej ".push_back" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): note: typ to "unknown-type"
+  main_file.cpp
+c:\program files (x86)\windows kits\10\include\10.0.15063.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\users\blagej\source\repos\grafika\packages\glfw.3.2.1\build\native\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(18): warning C4091: "typedef ": zignorowano na lewo od "obj_face" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(27): warning C4091: "typedef ": zignorowano na lewo od "obj_sphere" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(36): warning C4091: "typedef ": zignorowano na lewo od "obj_plane" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(41): warning C4091: "typedef ": zignorowano na lewo od "obj_vector" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(56): warning C4091: "typedef ": zignorowano na lewo od "obj_material" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(63): warning C4091: "typedef ": zignorowano na lewo od "obj_camera" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(69): warning C4091: "typedef ": zignorowano na lewo od "obj_light_point" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(76): warning C4091: "typedef ": zignorowano na lewo od "obj_light_disc" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(82): warning C4091: "typedef ": zignorowano na lewo od "obj_light_quad" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(29): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(29): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „temp”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(55): error C2653: "Models": nie jest nazwą klasa lub nazwą przestrzeni nazw
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(55): error C2143: błąd składniowy: brakuje „;” przed „*”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(55): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(95): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(111): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(112): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(116): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(117): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(118): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(119): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(121): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(181): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(181): error C2228: po lewej ".lode" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(181): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(181): error C2228: po lewej ".data" musi być typ struct/union
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(181): error C2228: po lewej ".width" musi być typ struct/union
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(181): error C2228: po lewej ".height" musi być typ struct/union
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(181): error C2661: "lodepng::decode": brak przeciążonej funkcji przyjmującej 2 argumenty
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(182): error C2065: "cout": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(184): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(184): error C2228: po lewej ".lode" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(184): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(184): error C2228: po lewej ".tex" musi być typ struct/union
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(184): error C2660: "glGenTextures": funkcja nie przyjmuje 1 argumentów
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(185): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(185): error C2228: po lewej ".lode" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(185): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(185): error C2228: po lewej ".tex" musi być typ struct/union
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(185): error C2660: "glBindTexture": funkcja nie przyjmuje 1 argumentów
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(186): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(186): error C2228: po lewej ".lode" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(186): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(186): error C2228: po lewej ".width" musi być typ struct/union
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(186): error C2228: po lewej ".height" musi być typ struct/union
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(187): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(187): error C2228: po lewej ".lode" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(187): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(187): error C2228: po lewej ".data" musi być typ struct/union
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(187): error C2660: "glTexImage2D": funkcja nie przyjmuje 6 argumentów
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(193): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(193): error C2228: po lewej ".isdynamic" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(193): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(195): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(195): error C2228: po lewej ".vertexCount" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(195): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(196): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(196): error C2228: po lewej ".vertices" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(196): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(197): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(197): error C2228: po lewej ".texCoords" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(197): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(198): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(198): error C2228: po lewej ".normals" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(198): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(199): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(203): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(203): error C2228: po lewej ".vertices" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(203): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(204): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(204): error C2228: po lewej ".vertices" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(204): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(205): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(205): error C2228: po lewej ".vertices" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(205): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(208): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(208): error C2228: po lewej ".texCoords" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(208): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(209): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(209): error C2228: po lewej ".texCoords" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(209): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(210): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(210): error C2228: po lewej ".texCoords" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(210): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(213): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(213): error C2228: po lewej ".normals" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(213): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(214): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(214): error C2228: po lewej ".normals" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(214): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(215): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(215): error C2228: po lewej ".normals" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(215): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(222): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(222): error C2228: po lewej ".istriangle" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(222): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(223): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(223): error C2228: po lewej ".vertexCount" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(223): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(224): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(224): error C2228: po lewej ".vertices" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(224): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(225): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(225): error C2228: po lewej ".texCoords" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(225): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(226): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(226): error C2228: po lewej ".normals" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(226): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(227): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(231): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(231): error C2228: po lewej ".vertices" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(231): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(232): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(232): error C2228: po lewej ".vertices" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(232): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(233): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(233): error C2228: po lewej ".vertices" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(233): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(236): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(236): error C2228: po lewej ".texCoords" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(236): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(237): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(237): error C2228: po lewej ".texCoords" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(237): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(238): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(238): error C2228: po lewej ".texCoords" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(238): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(241): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(241): error C2228: po lewej ".normals" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(241): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(242): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(242): error C2228: po lewej ".normals" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(242): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(243): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(243): error C2228: po lewej ".normals" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(243): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2653: "Models": nie jest nazwą klasa lub nazwą przestrzeni nazw
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2065: "models": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2228: po lewej ".push_back" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2065: "temp": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(251): error C2653: "Models": nie jest nazwą klasa lub nazwą przestrzeni nazw
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(251): error C2061: błąd składniowy: identyfikator „Gallery”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(298): error C2227: po lewej "->draw" musi wskazywać typ class/struct/union/generic
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(298): note: typ to "int *"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\model.h(64): error C2923: "std::vector": "mod" nie jest prawidłowy argument typu szablon dla parametru "_Ty"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(29): note: zobacz deklarację „mod”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\model.h(64): error C3203: „allocator”: klasy niespecjalizowanej klasa szablon nie można użyć jako argumentu szablon dla parametru szablon „_Alloc”, oczekiwano typu rzeczywistego
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(39): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(52): warning C4091: "typedef ": zignorowano na lewo od "mod" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(21): error C2374: "aspect": zmiana definicji; wielokrotna inicjalizacja
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(21): note: zobacz deklarację „aspect”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(22): error C2374: "speed_x": zmiana definicji; wielokrotna inicjalizacja
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(22): note: zobacz deklarację „speed_x”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(24): error C2374: "speed_y": zmiana definicji; wielokrotna inicjalizacja
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(24): note: zobacz deklarację „speed_y”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(29): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(29): error C2086: "int mod": zmiana definicji
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(29): note: zobacz deklarację „mod”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(29): error C2146: błąd składniowy: brakuje „;” przed identyfikatorem „temp”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(31): error C2374: "ksztalty": zmiana definicji; wielokrotna inicjalizacja
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(31): note: zobacz deklarację „ksztalty”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(33): error C2374: "tekstury": zmiana definicji; wielokrotna inicjalizacja
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(33): note: zobacz deklarację „tekstury”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(36): error C2374: "cameraPos": zmiana definicji; wielokrotna inicjalizacja
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(36): note: zobacz deklarację „cameraPos”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(37): error C2374: "cameraFront": zmiana definicji; wielokrotna inicjalizacja
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(37): note: zobacz deklarację „cameraFront”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(38): error C2374: "cameraUp": zmiana definicji; wielokrotna inicjalizacja
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(38): note: zobacz deklarację „cameraUp”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(38): fatal error C1003: Licznik błędów przekracza 100; zatrzymywanie kompilacji
   Shelf.cpp
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(18): warning C4091: "typedef ": zignorowano na lewo od "obj_face" podczas gdy brak deklaracji zmiennej
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(27): warning C4091: "typedef ": zignorowano na lewo od "obj_sphere" podczas gdy brak deklaracji zmiennej
@@ -11,9 +242,53 @@ c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(76
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(82): warning C4091: "typedef ": zignorowano na lewo od "obj_light_quad" podczas gdy brak deklaracji zmiennej
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
-c:\users\blagej\source\repos\grafika\szkielettemplate1\model.h(43): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
-  Generowanie kodu...
-  Trwa kompilowanie...
+c:\users\blagej\source\repos\grafika\szkielettemplate1\bottle.h(6): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\bottle.h(9): error C2614: "Models::Bottle": niedozwolona inicjalizacja elementu członkowskiego: "Model" nie jest podstawowym lub elementem członkowskim
+c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(15): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(19): error C2143: błąd składniowy: brakuje „;” przed „*”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(19): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
+c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(19): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(39): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(52): warning C4091: "typedef ": zignorowano na lewo od "mod" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(95): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(111): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(112): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(116): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(117): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(118): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(119): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(121): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(182): error C2065: "cout": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(199): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(203): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(204): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(205): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(208): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(209): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(210): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(213): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(214): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(215): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(227): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(231): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(232): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(233): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(236): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(237): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(238): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(241): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(242): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(243): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2039: "Model": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(13): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C3083: "Model" : symbol po lewej stronie "::" musi być typem
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2039: "models": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(13): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2065: "models": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2228: po lewej ".push_back" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.cpp(42): error C2039: "drawSolid": nie jest elementem członkowskim "Models::Bottle"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\bottle.h(6): note: zobacz deklarację „Models::Bottle”
   Gallery.cpp
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(18): warning C4091: "typedef ": zignorowano na lewo od "obj_face" podczas gdy brak deklaracji zmiennej
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(27): warning C4091: "typedef ": zignorowano na lewo od "obj_sphere" podczas gdy brak deklaracji zmiennej
@@ -26,9 +301,111 @@ c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(76
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(82): warning C4091: "typedef ": zignorowano na lewo od "obj_light_quad" podczas gdy brak deklaracji zmiennej
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
-c:\users\blagej\source\repos\grafika\szkielettemplate1\model.h(43): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\bottle.h(6): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\bottle.h(9): error C2614: "Models::Bottle": niedozwolona inicjalizacja elementu członkowskiego: "Model" nie jest podstawowym lub elementem członkowskim
+c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(7): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(39): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(52): warning C4091: "typedef ": zignorowano na lewo od "mod" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(55): error C2039: "Gallery": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(5): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(55): error C2143: błąd składniowy: brakuje „;” przed „*”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(55): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(95): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(111): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(112): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(116): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(117): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(118): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(119): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(121): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(182): error C2065: "cout": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(199): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(203): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(204): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(205): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(208): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(209): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(210): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(213): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(214): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(215): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(227): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(231): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(232): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(233): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(236): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(237): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(238): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(241): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(242): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(243): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2039: "Model": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(5): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C3083: "Model" : symbol po lewej stronie "::" musi być typem
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2039: "models": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(5): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2065: "models": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2228: po lewej ".push_back" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): note: typ to "unknown-type"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(251): error C2039: "Gallery": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(5): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(251): error C2061: błąd składniowy: identyfikator „Gallery”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(298): error C2227: po lewej "->draw" musi wskazywać typ class/struct/union/generic
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(298): note: typ to "int *"
+  Bottle.cpp
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(18): warning C4091: "typedef ": zignorowano na lewo od "obj_face" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(27): warning C4091: "typedef ": zignorowano na lewo od "obj_sphere" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(36): warning C4091: "typedef ": zignorowano na lewo od "obj_plane" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(41): warning C4091: "typedef ": zignorowano na lewo od "obj_vector" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(56): warning C4091: "typedef ": zignorowano na lewo od "obj_material" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(63): warning C4091: "typedef ": zignorowano na lewo od "obj_camera" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(69): warning C4091: "typedef ": zignorowano na lewo od "obj_light_point" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(76): warning C4091: "typedef ": zignorowano na lewo od "obj_light_disc" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(82): warning C4091: "typedef ": zignorowano na lewo od "obj_light_quad" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(7): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(11): error C2143: błąd składniowy: brakuje „;” przed „*”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(11): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
+c:\users\blagej\source\repos\grafika\szkielettemplate1\shelf.h(11): error C2238: nieoczekiwany(e) token(y) poprzedzający(e) ";"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(15): error C2504: "Model": klasa podstawowa niezdefiniowana
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(39): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\allmodels.h(52): warning C4091: "typedef ": zignorowano na lewo od "mod" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(95): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(111): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(112): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(116): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(117): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(118): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(119): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(121): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(182): error C2065: "cout": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(199): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(203): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(204): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(205): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(208): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(209): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(210): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(213): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(214): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(215): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(227): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(231): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(232): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(233): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(236): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(237): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(238): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(241): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(242): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(243): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2039: "Model": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(13): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C3083: "Model" : symbol po lewej stronie "::" musi być typem
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2039: "models": nie jest elementem członkowskim "Models"
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\gallery.h(13): note: zobacz deklarację „Models”
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2065: "models": niezadeklarowany identyfikator
+c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): error C2228: po lewej ".push_back" musi być typ struct/union
+  c:\users\blagej\source\repos\grafika\szkielettemplate1\main_file.cpp(248): note: typ to "unknown-type"
   Generowanie kodu...
-  Pomijanie... (nie wykryto odpowiednich zmian)
-  main_file.cpp
-  SzkieletTemplate1.vcxproj -> C:\Users\Blagej\source\repos\Grafika\Debug\GrafikaProj.exe
-  SzkieletTemplate1.vcxproj -> C:\Users\Blagej\source\repos\Grafika\Debug\GrafikaProj.pdb (Partial PDB)

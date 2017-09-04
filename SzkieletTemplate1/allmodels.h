@@ -20,13 +20,36 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #ifndef ALL_MODELS_H
 #define ALL_MODELS_H
 
-#include "cube.h"
-#include "detailed_cube.h"
-#include "sphere.h"
-#include "teapot.h"
-#include "torus.h"
+//#include "cube.h"
+//#include "detailed_cube.h"
+//#include "sphere.h"
+//#include "teapot.h"
+//#include "torus.h"
 #include "Bottle.h"
 #include "Shelf.h"
 #include "Gallery.h"
+
+//#include "lodepng.h"
+
+
+	typedef struct tex_type {
+		std::vector<unsigned char> data;
+		unsigned width, height, depth;
+		GLuint tex;
+	};
+
+	typedef struct mod {
+		int vertexCount;
+		float *vertices;
+		float *normals;
+		float *vertexNormals;
+		float *texCoords;
+		float *colors;
+
+		tex_type lode;
+		bool isdynamic = false;
+		bool istriangle = true;
+	};
+
 
 #endif

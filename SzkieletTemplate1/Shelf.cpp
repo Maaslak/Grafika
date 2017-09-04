@@ -10,12 +10,9 @@
 
 
 namespace Models {
-	Shelf::Shelf(char* path,char* texpath):Model(path, texpath) {
-		cout << path;
-		cout << texpath;
+	Shelf::Shelf(int id):Model(id) {
 		for (int i = 0; i < 20; i++) {
-			bot[i] = new Models::Bottle
-			("Corona/Corona.obj", "Corona/BotellaText.png");
+			bot[i] = new Models::Bottle(3);
 		}
 		//bot = new Models::Bottle
 		//("Corona/Corona.obj", "Corona/BotellaText.png");

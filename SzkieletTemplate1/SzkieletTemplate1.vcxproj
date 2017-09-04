@@ -151,8 +151,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bottle.cpp" />
-    <ClCompile Include="cube.cpp" />
-    <ClCompile Include="detailed_cube.cpp" />
     <ClCompile Include="Gallery.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="main_file.cpp" />
@@ -163,26 +161,19 @@
     <ClCompile Include="objTester\obj_parser.cpp" />
     <ClCompile Include="objTester\string_extra.cpp" />
     <ClCompile Include="Shelf.cpp" />
-    <ClCompile Include="sphere.cpp" />
-    <ClCompile Include="teapot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="allmodels.h" />
     <ClInclude Include="Bottle.h" />
     <ClInclude Include="constants.h" />
-    <ClInclude Include="cube.h" />
-    <ClInclude Include="detailed_cube.h" />
     <ClInclude Include="Gallery.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="model.h" />
-    <ClInclude Include="myCube.h" />
     <ClInclude Include="objTester\list.h" />
     <ClInclude Include="objTester\objLoader.h" />
     <ClInclude Include="objTester\obj_parser.h" />
     <ClInclude Include="objTester\string_extra.h" />
     <ClInclude Include="Shelf.h" />
-    <ClInclude Include="sphere.h" />
-    <ClInclude Include="teapot.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="gpl.txt" />

@@ -33,20 +33,24 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include <stdio.h>
 #include "objTester\obj_parser.h"
 #include "lodepng.h"
+#include "allmodels.h"
+#include "Bottle.h"
+#include "main_file.cpp"
 
 using namespace std;
 
-typedef struct tex_type {
+/*typedef struct tex_type {
 	std::vector<unsigned char> data;
 	unsigned width, height, depth;
 	GLuint tex;
-};
+};*/
+
 
 namespace Models {
 
 	class Model {
 		public:
-			int vertexCount;
+			/*int vertexCount;
 			float *vertices;
 			float *normals;
 			float *vertexNormals;
@@ -55,14 +59,17 @@ namespace Models {
 
 			tex_type lode;
 			bool isdynamic = false;
-			bool istriangle = true;
+			bool istriangle = true;*/
+
+			static vector <mod> models;
+			int id;
 					
 			virtual void drawSolid();
 			virtual void drawWire();
 
 			Model();
 			~Model();
-			Model(char *, char *);
+			Model(int);
 
 	};
 }

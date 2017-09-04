@@ -34,20 +34,20 @@ namespace Models {
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		glBindTexture(GL_TEXTURE_2D, lode.tex); //Uaktywnij uchwyt
+		glBindTexture(GL_TEXTURE_2D, models[id].lode.tex); //Uaktywnij uchwyt
 			
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState(GL_NORMAL_ARRAY);
 
-		glVertexPointer(3, GL_FLOAT, 0, vertices); 
-		glTexCoordPointer(3, GL_FLOAT, 0, texCoords);
-		glNormalPointer(GL_FLOAT, sizeof(float) * 4, vertexNormals);
+		glVertexPointer(3, GL_FLOAT, 0, models[id].vertices); 
+		glTexCoordPointer(3, GL_FLOAT, 0, models[id].texCoords);
+		glNormalPointer(GL_FLOAT, sizeof(float) * 4, models[id].vertexNormals);
 
-		if (istriangle)
-			glDrawArrays(GL_TRIANGLES, 0, vertexCount); //Rysuj model
+		if (models[id].istriangle)
+			glDrawArrays(GL_TRIANGLES, 0, models[id].vertexCount); //Rysuj model
 		else
-			glDrawArrays(GL_QUADS, 0, vertexCount);//Posprzątaj po sobie
+			glDrawArrays(GL_QUADS, 0, models[id].vertexCount);//Posprzątaj po sobie
 		glDisableClientState(GL_VERTEX_ARRAY);
 		glDisableClientState(GL_NORMAL_ARRAY);
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -56,26 +56,28 @@ namespace Models {
 
 	Model::Model()
 	{
-		isdynamic = false;
+		//models[id].isdynamic = false;
 	}
 	Model::~Model()
 	{
-		glDeleteTextures(1, &lode.tex);
-		if (isdynamic) {
-			if (vertices != NULL)
-				delete(vertices);
-			if (normals != NULL)
-				delete(normals);
-			if (vertexNormals != NULL)
-				delete(vertexNormals);
-			if (texCoords != NULL)
-				delete(texCoords);
-			if (colors != NULL)
-				delete(colors);
-		}
+		/*glDeleteTextures(1, &models[i].lode.tex);
+		if (models[i].isdynamic) {
+			if (models[i].vertices != NULL)
+				delete(models[i].vertices);
+			if (models[i].normals != NULL)
+				delete(models[i].normals);
+			if (models[i].vertexNormals != NULL)
+				delete(models[i].vertexNormals);
+			if (models[i].texCoords != NULL)
+				delete(models[i].texCoords);
+			if (models[i].colors != NULL)
+				delete(models[i].colors);
+		}*/
 	}
-	Model::Model(char* path, char* texpath = NULL)
+	Model::Model(int id)
 	{
+		this->id = id;
+		/*
 		cout << "tworzenie";
 		if(texpath != NULL)
 			if(lodepng::decode(lode.data, lode.width, lode.height, texpath))
@@ -95,6 +97,7 @@ namespace Models {
 				GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*)(lode.data.data()));
 		}*/
 
+		/*
 		obj_scene_data data;
 		if (!parse_obj_scene(&data, path))	//loadOBJ "Corona/Corona.obj"
 			throw EXCEPTION_BREAKPOINT;
@@ -152,6 +155,6 @@ namespace Models {
 					}
 				}
 			}
-		}
+		}*/
 	}
 }
