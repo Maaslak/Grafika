@@ -17,10 +17,10 @@ namespace Models {
 		("Corona/eb_metal_shelf_02.obj", "Corona/White Wood.png");
 		}*/
 		shelf = new Models::Shelf
-		("Corona/eb_metal_shelf_02.obj", "Corona/White Wood.png");
+		("Corona/eb_metal_shelf_02.obj", "Corona/oak.png");
 	}
 	Gallery::~Gallery() {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 1; i++) {
 			delete(shelf);
 		}
 	}

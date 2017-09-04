@@ -31,6 +31,11 @@ namespace Models {
 
 	void Model::drawSolid() {
 		cout << "rysowanie";
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		glBindTexture(GL_TEXTURE_2D, lode.tex); //Uaktywnij uchwyt
+			
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState(GL_NORMAL_ARRAY);
@@ -81,6 +86,15 @@ namespace Models {
 			glTexImage2D(GL_TEXTURE_2D, 0, 4, lode.width, lode.height, 0,
 				GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*)(lode.data.data()));
 		}
+
+		/* (texpath != NULL) {
+			lodepng::decode(lode.data, lode.width, lode.height, texpath);
+			glGenTextures(1, &lode.tex);
+			glBindTexture(GL_TEXTURE_2D, lode.tex);
+			glTexImage2D(GL_TEXTURE_2D, 0, 4, lode.width, lode.height, 0,
+				GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*)(lode.data.data()));
+		}*/
+
 		obj_scene_data data;
 		if (!parse_obj_scene(&data, path))	//loadOBJ "Corona/Corona.obj"
 			throw EXCEPTION_BREAKPOINT;

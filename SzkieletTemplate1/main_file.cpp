@@ -235,6 +235,8 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	//shelf->draw(V, M);
 
 	gallery->draw(V,M);
+
+	//bot->drawSolid();
 	
 	//glm::mat4 M1;
 	/*int sciana[3];
@@ -274,8 +276,6 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
 }
-
-
 
 
 

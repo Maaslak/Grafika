@@ -8,7 +8,7 @@ namespace Models {
 	public:
 		char* path;
 		char* texpath;
-		Bottle* bot;
+		Bottle* bot[20];
 		Shelf(char*, char*);
 		~Shelf();
 		void draw(glm::mat4, glm::mat4);

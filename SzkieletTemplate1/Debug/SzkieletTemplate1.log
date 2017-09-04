@@ -12,5 +12,23 @@ c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(82
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
 c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
 c:\users\blagej\source\repos\grafika\szkielettemplate1\model.h(43): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+  Generowanie kodu...
+  Trwa kompilowanie...
+  Gallery.cpp
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(18): warning C4091: "typedef ": zignorowano na lewo od "obj_face" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(27): warning C4091: "typedef ": zignorowano na lewo od "obj_sphere" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(36): warning C4091: "typedef ": zignorowano na lewo od "obj_plane" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(41): warning C4091: "typedef ": zignorowano na lewo od "obj_vector" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(56): warning C4091: "typedef ": zignorowano na lewo od "obj_material" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(63): warning C4091: "typedef ": zignorowano na lewo od "obj_camera" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(69): warning C4091: "typedef ": zignorowano na lewo od "obj_light_point" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(76): warning C4091: "typedef ": zignorowano na lewo od "obj_light_disc" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(82): warning C4091: "typedef ": zignorowano na lewo od "obj_light_quad" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(105): warning C4091: "typedef ": zignorowano na lewo od "obj_growable_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\objtester\obj_parser.h(138): warning C4091: "typedef ": zignorowano na lewo od "obj_scene_data" podczas gdy brak deklaracji zmiennej
+c:\users\blagej\source\repos\grafika\szkielettemplate1\model.h(43): warning C4091: "typedef ": zignorowano na lewo od "tex_type" podczas gdy brak deklaracji zmiennej
+  Generowanie kodu...
+  Pomijanie... (nie wykryto odpowiednich zmian)
+  main_file.cpp
   SzkieletTemplate1.vcxproj -> C:\Users\Blagej\source\repos\Grafika\Debug\GrafikaProj.exe
   SzkieletTemplate1.vcxproj -> C:\Users\Blagej\source\repos\Grafika\Debug\GrafikaProj.pdb (Partial PDB)
