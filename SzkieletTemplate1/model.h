@@ -34,8 +34,8 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include "objTester\obj_parser.h"
 #include "lodepng.h"
 #include "allmodels.h"
-#include "Bottle.h"
-#include "main_file.cpp"
+//#include "Bottle.h"
+//#include "main_file.cpp"
 
 using namespace std;
 

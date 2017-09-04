@@ -12,7 +12,7 @@
 
 namespace Models {
 
-	class Gallery : public Model {
+	class Gallery : public Model{
 	public:
 		//char* path;
 		//char* texpath;
@@ -21,4 +21,5 @@ namespace Models {
 		~Gallery();
 		void draw(glm::mat4, glm::mat4);
 	};
+
 }

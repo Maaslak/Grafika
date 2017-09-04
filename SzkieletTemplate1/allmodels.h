@@ -25,9 +25,9 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 //#include "sphere.h"
 //#include "teapot.h"
 //#include "torus.h"
-#include "Bottle.h"
-#include "Shelf.h"
-#include "Gallery.h"
+//#include "Bottle.h"
+//#include "Shelf.h"
+//#include "Gallery.h"
 
 //#include "lodepng.h"
 
@@ -38,7 +38,7 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 		GLuint tex;
 	};
 
-	typedef struct mod {
+	struct mod {
 		int vertexCount;
 		float *vertices;
 		float *normals;
