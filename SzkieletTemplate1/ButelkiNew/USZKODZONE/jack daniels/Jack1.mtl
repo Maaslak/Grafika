@@ -1,0 +1,14 @@
+# Exported from 3D Builder
+
+newmtl Material_#265
+Kd 0.207843 0.109804 0.027451
+
+newmtl ,Black_Nero
+Kd 0.003922 0.003922 0.003922
+
+newmtl ,Black_Ner
+Kd 0.003922 0.003922 0.003922
+
+newmtl White
+Kd 1.000000 1.000000 1.000000
+map_Kd 31.jpg
