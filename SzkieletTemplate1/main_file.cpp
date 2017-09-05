@@ -348,7 +348,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
 }
 
-
+//chuj
 
 int main(void)
  {
