@@ -8,12 +8,13 @@
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include "lodepng.h"
-#include "constants.h"
-#include "allmodels.h"
-#include "model.h"
+//#include "constants.h"
+//#include "allmodels.h"
+//#include "model.h"
+#include "Gallery.h"
 //#include "myCube.h"
 
-#include <vector>
+//#include <vector>
 
 
 
@@ -26,11 +27,12 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 
 //std::vector <mod> models;
 
-mod temp;
 
-char* ksztalty[60] = { "Corona/galeria.obj","Corona/eb_metal_shelf_02.obj" ,"Corona/Corona.obj"};
+//mod temp;
 
-char* tekstury[60] = { "Corona/BotellaText.png","Corona/oak.png","Corona/BotellaText.png"};
+char* ksztalty[] = { "Gallery/gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj"};
+
+char* tekstury[] = { "Gallery/podloga.png","Shelf/oak.png","Corona/corona.png"};
 
 				   // camera
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -48,7 +50,7 @@ float lastX = 800.0f / 2.0;
 float lastY = 600.0 / 2.0;
 float fov = 45.0f;
 
-//Models::Shelf* shelf[3];
+//Models::Shelf* shelf[100];
 //Models::Shelf* shelf;
 //Models::Bottle* bot;
 //Models::Bottle* bot[ilosc];
@@ -169,86 +171,89 @@ void initOpenGLProgram(GLFWwindow* window) {
 	//shelf = new Models::Shelf
 	//("Corona/eb_metal_shelf_02.obj", "Corona/White Wood.png");
 	
-
+	
 	/*for (int i = 0; i < ilosc; i++) {
 		bot[i] = new Models::Bottle("Corona/Corona.obj", "Corona/BotellaText.png");
 	}*/
 
 		//gallery = new Models::Gallery("Corona/galeria.obj", "Corona/BotellaText.png");
-	for (int i = 0; i < 3; i++) {
+	for (int id = 0; id < 3; id++) {
 
-		if (tekstury[i] != NULL)
-			if (lodepng::decode(temp.lode.data, temp.lode.width, temp.lode.height, tekstury[i]))
-				cout << "Unable to load texture from" << ksztalty[i];
+		if (tekstury[id] != NULL)
+			if (lodepng::decode(Models::Model::models[id].lode.data, Models::Model::models[id].lode.width, Models::Model::models[id].lode.height, tekstury[id]))
+				cout << "Unable to load texture from" << ksztalty[id];
 			else {
-				glGenTextures(1, &temp.lode.tex);
-				glBindTexture(GL_TEXTURE_2D, temp.lode.tex);
-				glTexImage2D(GL_TEXTURE_2D, 0, 4, temp.lode.width, temp.lode.height, 0,
-					GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*)(temp.lode.data.data()));
+				glGenTextures(1, &Models::Model::models[id].lode.tex);
+				glBindTexture(GL_TEXTURE_2D, Models::Model::models[id].lode.tex);
+				glTexImage2D(GL_TEXTURE_2D, 0, 4, Models::Model::models[id].lode.width, Models::Model::models[id].lode.height, 0,
+					GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*)(Models::Model::models[id].lode.data.data()));
 			}
 
 			obj_scene_data data;
-			if (!parse_obj_scene(&data, ksztalty[i]))	//loadOBJ "Corona/Corona.obj"
+			if (!parse_obj_scene(&data, ksztalty[id]))	//loadOBJ "Corona/Corona.obj"
 				throw EXCEPTION_BREAKPOINT;
-			temp.isdynamic = true;
+			Models::Model::models[id].isdynamic = true;
 			if (data.face_list[0]->vertex_count == 3) {
-				temp.vertexCount = 3 * data.face_count;
-				temp.vertices = new float[9 * data.face_count];
-				temp.texCoords = new float[9 * data.face_count];
-				temp.normals = new float[9 * data.face_count];
+				Models::Model::models[id].vertexCount = 3 * data.face_count;
+				Models::Model::models[id].vertices = new float[9 * data.face_count];
+				Models::Model::models[id].texCoords = new float[9 * data.face_count];
+				Models::Model::models[id].normals = new float[9 * data.face_count];
 				for (unsigned int i = 0; i < data.face_count; i++)
 				{
 					for (unsigned int j = 0; j < 3; j++)
 					{
-						temp.vertices[i * 9 + j * 3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
-						temp.vertices[i * 9 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
-						temp.vertices[i * 9 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
+						Models::Model::models[id].vertices[i * 9 + j * 3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
+						Models::Model::models[id].vertices[i * 9 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
+						Models::Model::models[id].vertices[i * 9 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
 
 						if (data.vertex_texture_count != 0) {
-							temp.texCoords[i * 9 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
-							temp.texCoords[i * 9 + j * 3 + 1] = 1.0f - data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
-							temp.texCoords[i * 9 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
+							Models::Model::models[id].texCoords[i * 9 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
+							Models::Model::models[id].texCoords[i * 9 + j * 3 + 1] = 1.0f - data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
+							Models::Model::models[id].texCoords[i * 9 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
 						}
 						if (data.vertex_normal_count != 0) {
-							temp.normals[i * 9 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
-							temp.normals[i * 9 + j * 3 + 1] = -data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[1];
-							temp.normals[i * 9 + j * 3 + 2] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[2];
+							Models::Model::models[id].normals[i * 9 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
+							Models::Model::models[id].normals[i * 9 + j * 3 + 1] = -data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[1];
+							Models::Model::models[id].normals[i * 9 + j * 3 + 2] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[2];
 						}
 
 					}
 				}
 			}
 			if (data.face_list[0]->vertex_count == 4) {
-				temp.istriangle = false;
-				temp.vertexCount = data.face_count;
-				temp.vertices = new float[12 * data.face_count];
-				temp.texCoords = new float[12 * data.face_count];
-				temp.normals = new float[12 * data.face_count];
+				Models::Model::models[id].istriangle = false;
+				Models::Model::models[id].vertexCount = data.face_count;
+				Models::Model::models[id].vertices = new float[12 * data.face_count];
+				Models::Model::models[id].texCoords = new float[12 * data.face_count];
+				Models::Model::models[id].normals = new float[12 * data.face_count];
 				for (unsigned int i = 0; i < data.face_count; i++)
 				{
 					for (unsigned int j = 0; j < 4; j++)
 					{
-						temp.vertices[i * 12 + j * 3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
-						temp.vertices[i * 12 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
-						temp.vertices[i * 12 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
+						Models::Model::models[id].vertices[i * 12 + j * 3] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[0];
+						Models::Model::models[id].vertices[i * 12 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
+						Models::Model::models[id].vertices[i * 12 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
 
 						if (data.vertex_texture_count != 0) {
-							temp.texCoords[i * 12 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
-							temp.texCoords[i * 12 + j * 3 + 1] = 1.0f - data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
-							temp.texCoords[i * 12 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
+							Models::Model::models[id].texCoords[i * 12 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
+							Models::Model::models[id].texCoords[i * 12 + j * 3 + 1] = 1.0f - data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
+							Models::Model::models[id].texCoords[i * 12 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
 						}
 						if (data.vertex_normal_count != 0) {
-							temp.normals[i * 12 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
-							temp.normals[i * 12 + j * 3 + 1] = -data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[1];
-							temp.normals[i * 12 + j * 3 + 2] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[2];
+							Models::Model::models[id].normals[i * 12 + j * 3] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[0];
+							Models::Model::models[id].normals[i * 12 + j * 3 + 1] = -data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[1];
+							Models::Model::models[id].normals[i * 12 + j * 3 + 2] = data.vertex_normal_list[(data.face_list[i]->normal_index)[j]]->e[2];
 						}
 					}
 				}
 			}
-			Models::Model::models.push_back(temp);
+			//Models::Model::models.push_back(temp);
 	}
 	//Models::Model::models = models;
 	gallery = new Models::Gallery(0);
+	/*for (int i = 0; i < 100; i++) {
+		shelf[i] = new Models::Shelf(1);
+	}*/
 
 }
 
@@ -288,14 +293,17 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	/*for (int i = 0; i < 1; i++) {
+	/*for (int i = 0; i < 100; i++) {
 		shelf[i]->draw(V, M);
 		M = glm::translate(M, glm::vec3(120.0f, 0.0f, 0.0f));
 		glLoadMatrixf(value_ptr(V*M));
 	}*/
 	//shelf->draw(V, M);
 
+	M = glm::translate(M, glm::vec3(0.0f, 80.0f, 0.0f));
+	glLoadMatrixf(value_ptr(V*M));
 	gallery->draw(V,M);
+	//shelf->draw(V, M);
 
 	//bot->drawSolid();
 	
@@ -343,7 +351,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 int main(void)
  {
 	GLFWwindow* window; //WskaŸnik na obiekt reprezentuj¹cy okno
-
+	
 	glfwSetErrorCallback(error_callback);//Zarejestruj procedurê obs³ugi b³êdów
 
 	if (!glfwInit()) { //Zainicjuj bibliotekê GLFW

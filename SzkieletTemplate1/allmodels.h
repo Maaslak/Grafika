@@ -28,11 +28,12 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 //#include "Bottle.h"
 //#include "Shelf.h"
 //#include "Gallery.h"
+//#include "model.h"
 
 //#include "lodepng.h"
 
 
-	typedef struct tex_type {
+	/*typedef struct tex_type {
 		std::vector<unsigned char> data;
 		unsigned width, height, depth;
 		GLuint tex;
@@ -49,7 +50,7 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 		tex_type lode;
 		bool isdynamic = false;
 		bool istriangle = true;
-	};
+	};*/
 
 
 #endif

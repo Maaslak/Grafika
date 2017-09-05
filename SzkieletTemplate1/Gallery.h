@@ -1,5 +1,5 @@
 #pragma once
-#include "model.h"
+//#include "model.h"
 #include "Shelf.h"
 
 #include <stdio.h>
@@ -16,7 +16,7 @@ namespace Models {
 	public:
 		//char* path;
 		//char* texpath;
-		Shelf* shelf;
+		Shelf* shelf[20];
 		Gallery(int);
 		~Gallery();
 		void draw(glm::mat4, glm::mat4);

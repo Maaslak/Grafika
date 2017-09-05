@@ -25,6 +25,10 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include <fstream>
 #include <map>
 #include <vector>
+#include <structuredquery.h>
+#include <fltUserStructures.h>
+#include <StructuredQueryCondition.h>
+#include <cstdlib>
 #include "glm/glm.hpp"
 //#include <GLFW/glfw3.h>
 #include "GL/glew.h"
@@ -33,20 +37,36 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include <stdio.h>
 #include "objTester\obj_parser.h"
 #include "lodepng.h"
-#include "allmodels.h"
+//#include "allmodels.h"
 //#include "Bottle.h"
 //#include "main_file.cpp"
 
 using namespace std;
 
-/*typedef struct tex_type {
+typedef struct tex_type {
 	std::vector<unsigned char> data;
 	unsigned width, height, depth;
 	GLuint tex;
-};*/
+};
+
+typedef struct mod {
+	int vertexCount;
+	float *vertices;
+	float *normals;
+	float *vertexNormals;
+	float *texCoords;
+	float *colors;
+
+	tex_type lode;
+	bool isdynamic = false;
+	bool istriangle = true;
+};
 
 
 namespace Models {
+
+	
+	
 
 	class Model {
 		public:
@@ -61,7 +81,9 @@ namespace Models {
 			bool isdynamic = false;
 			bool istriangle = true;*/
 
-			static vector <mod> models;
+			//static vector<mod> models;
+			static mod models[20];
+
 			int id;
 					
 			virtual void drawSolid();

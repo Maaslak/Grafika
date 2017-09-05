@@ -12,7 +12,7 @@
 namespace Models {
 	Shelf::Shelf(int id):Model(id) {
 		for (int i = 0; i < 20; i++) {
-			bot[i] = new Models::Bottle(3);
+			bot[i] = new Models::Bottle(2);
 		}
 		//bot = new Models::Bottle
 		//("Corona/Corona.obj", "Corona/BotellaText.png");

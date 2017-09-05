@@ -20,7 +20,8 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include "model.h"
 
 namespace Models {
-	
+	//vector <mod> Model::models;
+	mod Model::models[20];
 	void Model::drawWire() {
 		glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 		
@@ -30,7 +31,6 @@ namespace Models {
 	}
 
 	void Model::drawSolid() {
-		cout << "rysowanie";
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
