@@ -30,7 +30,7 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 
 //mod temp;
 
-char* ksztalty[] = { "Gallery/galeria1.obj","Shelf/shelf.obj" ,"Corona/corona.obj"};
+char* ksztalty[] = { "Gallery/galeria1.obj","Shelf/shelf.obj" ,"ButelkiNew/USZKODZONE/jack daniels/Jack1.obj" };//"Corona/corona.obj"};
 
 char* tekstury[] = { "Gallery/podloga.png","Shelf/oak.png","Corona/corona.png"};
 
@@ -156,7 +156,9 @@ void initOpenGLProgram(GLFWwindow* window) {
 	glEnable(GL_DEPTH_TEST); //W³¹cz u¿ywanie budora g³êbokoœci
 	glEnable(GL_COLOR_MATERIAL); //W³¹cz œledzenie kolorów przez materia³
 	glEnable(GL_TEXTURE_2D);
-
+	glEnable(GL_CULL_FACE);
+	//glCullFace(GL_FRONT);
+	glFrontFace(GL_CCW);
 	
 	//bot = new Models::Bottle
 	//("room/OBJ/Room.obj", "Corona/Great Hall/3bbce3da.png");
