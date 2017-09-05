@@ -30,7 +30,7 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 
 //mod temp;
 
-char* ksztalty[] = { "Gallery/gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj"};
+char* ksztalty[] = { "Gallery/galeria1.obj","Shelf/shelf.obj" ,"Corona/corona.obj"};
 
 char* tekstury[] = { "Gallery/podloga.png","Shelf/oak.png","Corona/corona.png"};
 
@@ -206,7 +206,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 						Models::Model::models[id].vertices[i * 9 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
 						Models::Model::models[id].vertices[i * 9 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
 
-						if (data.vertex_texture_count != 0) {
+						if (data.vertex_texture_count != 0 && (data.face_list[i]->texture_index)[0] != -1) {
 							Models::Model::models[id].texCoords[i * 9 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
 							Models::Model::models[id].texCoords[i * 9 + j * 3 + 1] = 1.0f - data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
 							Models::Model::models[id].texCoords[i * 9 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];
@@ -234,7 +234,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 						Models::Model::models[id].vertices[i * 12 + j * 3 + 1] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[1];
 						Models::Model::models[id].vertices[i * 12 + j * 3 + 2] = data.vertex_list[(data.face_list[i]->vertex_index)[j]]->e[2];
 
-						if (data.vertex_texture_count != 0) {
+						if (data.vertex_texture_count != 0 && (data.face_list[i]->texture_index)[0] != -1) {
 							Models::Model::models[id].texCoords[i * 12 + j * 3] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[0];
 							Models::Model::models[id].texCoords[i * 12 + j * 3 + 1] = 1.0f - data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[1];
 							Models::Model::models[id].texCoords[i * 12 + j * 3 + 2] = data.vertex_texture_list[(data.face_list[i]->texture_index)[j]]->e[2];

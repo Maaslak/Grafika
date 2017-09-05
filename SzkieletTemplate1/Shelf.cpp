@@ -19,7 +19,7 @@ namespace Models {
 	}
 	Shelf::~Shelf() {
 		for (int i = 0; i < 20; i++) {
-			delete(bot[20]);
+			delete(bot[i]);
 		}
 	}
 	void Shelf::draw(glm::mat4 V, glm::mat4 M) {
