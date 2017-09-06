@@ -16,7 +16,7 @@ namespace Models {
 	public:
 		//char* path;
 		//char* texpath;
-		Shelf* shelf[20];
+		Shelf* shelf[28];
 		Gallery(int);
 		~Gallery();
 		void draw(glm::mat4, glm::mat4);

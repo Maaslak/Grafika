@@ -30,9 +30,9 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 
 //mod temp;
 
-char* ksztalty[] = { "Gallery/galeria1.obj","Shelf/shelf.obj" ,"ButelkiNew/USZKODZONE/jack daniels/Jack1.obj" };//"Corona/corona.obj"};
+char* ksztalty[] = { "Gallery/galeria1.obj","Shelf/shelf.obj" ,"Corona/corona.obj" };//"Corona/corona.obj"};
 
-char* tekstury[] = { "Gallery/podloga.png","Shelf/oak.png","Corona/corona.png"};
+char* tekstury[] = { "Gallery/bricks.png","Shelf/oak.png","Corona/corona.png"};
 
 				   // camera
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -96,7 +96,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 
 	deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	float cameraSpeed = 10.0f * glfwGetTime();
+	float cameraSpeed = 5.0f * glfwGetTime();
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		 deltacameraPos+= cameraSpeed * cameraFront;
@@ -157,8 +157,8 @@ void initOpenGLProgram(GLFWwindow* window) {
 	glEnable(GL_COLOR_MATERIAL); //W³¹cz œledzenie kolorów przez materia³
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_CULL_FACE);
-	//glCullFace(GL_FRONT);
-	glFrontFace(GL_CCW);
+	glCullFace(GL_FRONT);
+	//glFrontFace(GL_CCW);
 	
 	//bot = new Models::Bottle
 	//("room/OBJ/Room.obj", "Corona/Great Hall/3bbce3da.png");
@@ -287,15 +287,22 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	//glm::mat4 M = glm::mat4(1.0f);
 	//M = glm::rotate(M, 5.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
-	M = glm::rotate(M, angle_x, glm::vec3(1.0f, 0.0f, 0.0f));
-	M = glm::rotate(M, angle_y, glm::vec3(0.0f, 1.0f, 0.0f));
-	M = glm::scale(M, glm::vec3(0.2f, 0.2f, 0.2f));
-	glLoadMatrixf(value_ptr(V*M));
+	//M = glm::rotate(M, angle_x, glm::vec3(1.0f, 0.0f, 0.0f));
+	//M = glm::rotate(M, angle_y, glm::vec3(0.0f, 1.0f, 0.0f));
 
+	M = glm::scale(M, glm::vec3(0.2f, 0.2f, 0.2f));
+	M = glm::rotate(M, 1.57f, glm::vec3(1.0f, 0.0f, 0.0f));
+	M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, 1.0f));
+	M = glm::translate(M, glm::vec3(0.0f, -140.0f, 0.0f));
+	M = glm::translate(M, glm::vec3(-300.0f, 0.0f, 0.0f));
+	
+	glLoadMatrixf(value_ptr(V*M));
 	
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	gallery->draw(V, M);
 
 	/*for (int i = 0; i < 100; i++) {
 		shelf[i]->draw(V, M);
@@ -304,48 +311,14 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	}*/
 	//shelf->draw(V, M);
 
-	M = glm::translate(M, glm::vec3(0.0f, 80.0f, 0.0f));
-	glLoadMatrixf(value_ptr(V*M));
-	gallery->draw(V,M);
+	//M = glm::translate(M, glm::vec3(0.0f, 80.0f, 0.0f));
+	//glLoadMatrixf(value_ptr(V*M));
+	
 	//shelf->draw(V, M);
 
 	//bot->drawSolid();
 	
-	//glm::mat4 M1;
-	/*int sciana[3];
-	sciana[1] = ilosc / 5 * 2;
-	sciana[2] = ilosc / 5;
-	sciana[3] = ilosc / 5 * 2;*/
-	/*for (int i = 0; i < ilosc/(ilosc/4); i++) {
-		M1 = glm::translate(M, glm::vec3(0.0f, 0.0f, i * (-50) + 0.0f));
-		for (int j = 0; j < ilosc/4; j++) {
-			M1 = glm::translate(M1, glm::vec3(0.0f, 20.0f, 0.0f));
-			glLoadMatrixf(value_ptr(V*M1));
-			bot[i]->drawSolid();
-			
-		}
-	}*/
-
-/*	for (int i = 0; i < sciana[2] / (sciana[2] / 4); i++) {
-		M1 = glm::translate(M, glm::vec3(0.0f, sciana[1]*5+0.0f, i * (-50) + 0.0f));
-		for (int j = 0; j < sciana[2] / 4; j++) {
-			M1 = glm::translate(M1, glm::vec3(-20.0f, 0.0f, 0.0f));
-			glLoadMatrixf(value_ptr(V*M1));
-			bot[sciana[1]+i]->drawSolid();
-
-		}
-	}
-
-	for (int i = 0; i < sciana[3] / (sciana[3] / 4); i++) {
-		M1 = glm::translate(M, glm::vec3(sciana[2]*5+0.0f, sciana[1] * 5 + 0.0f, i * (-50) + 0.0f));
-		for (int j = 0; j < sciana[3] / 4; j++) {
-			M1 = glm::translate(M1, glm::vec3(0.0f, 0.0f, -20.0f));
-			glLoadMatrixf(value_ptr(V*M1));
-			bot[sciana[1]+sciana[2] + i]->drawSolid();
-
-		}
-	}
-	*/
+	
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
 }
@@ -389,7 +362,7 @@ int main(void)
 
 	glm::mat4 M = glm::mat4(1.0f);
 	//M = glm::rotate(M, 3.14f, glm::vec3(1.0f, 0.0f, 0.0f));
-	M = glm::translate(M, glm::vec3(0.0f, -10.0f, -20.0f));
+	//M = glm::translate(M, glm::vec3(0.0f, -10.0f, -20.0f));
 					//G³ówna pêtla
 	while (!glfwWindowShouldClose(window)) //Tak d³ugo jak okno nie powinno zostaæ zamkniête
 	{
@@ -409,7 +382,41 @@ int main(void)
 	exit(EXIT_SUCCESS);
 }
 
+//glm::mat4 M1;
+/*int sciana[3];
+sciana[1] = ilosc / 5 * 2;
+sciana[2] = ilosc / 5;
+sciana[3] = ilosc / 5 * 2;*/
+/*for (int i = 0; i < ilosc/(ilosc/4); i++) {
+M1 = glm::translate(M, glm::vec3(0.0f, 0.0f, i * (-50) + 0.0f));
+for (int j = 0; j < ilosc/4; j++) {
+M1 = glm::translate(M1, glm::vec3(0.0f, 20.0f, 0.0f));
+glLoadMatrixf(value_ptr(V*M1));
+bot[i]->drawSolid();
 
+}
+}*/
+
+/*	for (int i = 0; i < sciana[2] / (sciana[2] / 4); i++) {
+M1 = glm::translate(M, glm::vec3(0.0f, sciana[1]*5+0.0f, i * (-50) + 0.0f));
+for (int j = 0; j < sciana[2] / 4; j++) {
+M1 = glm::translate(M1, glm::vec3(-20.0f, 0.0f, 0.0f));
+glLoadMatrixf(value_ptr(V*M1));
+bot[sciana[1]+i]->drawSolid();
+
+}
+}
+
+for (int i = 0; i < sciana[3] / (sciana[3] / 4); i++) {
+M1 = glm::translate(M, glm::vec3(sciana[2]*5+0.0f, sciana[1] * 5 + 0.0f, i * (-50) + 0.0f));
+for (int j = 0; j < sciana[3] / 4; j++) {
+M1 = glm::translate(M1, glm::vec3(0.0f, 0.0f, -20.0f));
+glLoadMatrixf(value_ptr(V*M1));
+bot[sciana[1]+sciana[2] + i]->drawSolid();
+
+}
+}
+*/
 
 
 /*int main(int argc, char** argv) {
