@@ -1,0 +1,9 @@
+# Exported from 3D Builder
+
+newmtl Red
+Kd 1.000000 1.000000 1.000000
+map_Kd Gallery.png
+
+newmtl Red_untitled.png
+Kd 1.000000 1.000000 1.000000
+map_Kd untitled.png
