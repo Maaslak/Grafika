@@ -32,7 +32,7 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 
 char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj" };//"Corona/corona.obj"};
 
-char* tekstury[] = { "Gallery/Gallery.png","Shelf/oak.png","Corona/corona.png"};
+char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png","Corona/corona.png"};
 
 				   // camera
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -96,7 +96,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 
 	deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	float cameraSpeed = 5.0f * glfwGetTime();
+	float cameraSpeed = 2.0f * glfwGetTime();
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		 deltacameraPos+= cameraSpeed * cameraFront;
@@ -291,10 +291,10 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	//M = glm::rotate(M, angle_y, glm::vec3(0.0f, 1.0f, 0.0f));
 
 	M = glm::scale(M, glm::vec3(0.2f, 0.2f, 0.2f));
-	M = glm::rotate(M, 1.57f, glm::vec3(1.0f, 0.0f, 0.0f));
-	M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, 1.0f));
-	M = glm::translate(M, glm::vec3(0.0f, -140.0f, 0.0f));
-	M = glm::translate(M, glm::vec3(-300.0f, 0.0f, 0.0f));
+	M = glm::rotate(M, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
+	M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, -1.0f));
+	//M = glm::translate(M, glm::vec3(0.0f, -140.0f, 0.0f));
+	//M = glm::translate(M, glm::vec3(-300.0f, 0.0f, 0.0f));
 	
 	glLoadMatrixf(value_ptr(V*M));
 	
@@ -326,7 +326,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 //chuj
 
 int main(void)
- {
+{
 	GLFWwindow* window; //WskaŸnik na obiekt reprezentuj¹cy okno
 	
 	glfwSetErrorCallback(error_callback);//Zarejestruj procedurê obs³ugi b³êdów
