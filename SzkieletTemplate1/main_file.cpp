@@ -30,9 +30,15 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 
 //mod temp;
 
-char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj" };//"Corona/corona.obj"};
+char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj" ,"ButelkiNew/szampan/moet/Moet.obj" ,
+	"ButelkiNew/absolut vodka/AbsolutTest.obj" ,"ButelkiNew/chivas regal (whisky)/Chivas.obj",  
+	"ButelkiNew/beer/heineken/HeinekenTest.obj", "ButelkiNew/Screaming Eagle/ScreamingEagle.obj",
+	"ButelkiNew/les hauts de lynch/LesHauts.obj" ,"ButelkiNew/Turnbull's (whisky)/Turnbull's.obj"/*"ButelkiNew/napoleon/Napoleon.obj",*/ };
 
-char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png","Corona/corona.png"};
+char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png" ,"Corona/corona.png" ,"ButelkiNew/szampan/moet/texture.png" ,
+	"ButelkiNew/absolut vodka/texture.png" ,"ButelkiNew/chivas regal (whisky)/texture.png", 
+	"ButelkiNew/beer/heineken/texture.png", "ButelkiNew/Screaming Eagle/texture.png",
+	"ButelkiNew/les hauts de lynch/texture.png", "ButelkiNew/Turnbull's (whisky)/texture.png" /*"ButelkiNew/napoleon/texture.png",*/ };
 
 				   // camera
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -52,11 +58,9 @@ float lastX = 800.0f / 2.0;
 float lastY = 600.0 / 2.0;
 float fov = 45.0f;
 
-//Models::Shelf* shelf[100];
+Models::Gallery* gallery;
 //Models::Shelf* shelf;
 //Models::Bottle* bot;
-//Models::Bottle* bot[ilosc];
-Models::Gallery* gallery;
 
 
 void displayFrame() {
@@ -160,28 +164,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	//glCullFace(GL_FRONT);
 	//glFrontFace(GL_CCW);
 	
-	//bot = new Models::Bottle
-	//("room/OBJ/Room.obj", "Corona/Great Hall/3bbce3da.png");
-	//("can/can.obj", "Corona/BotellaText.png");
-	//("Corona/Corona.obj", "Corona/BotellaText.png");
-	//("Corona/can/can_reducedfaces_repaired.obj", "Corona/BotellaText.png");
-	//("eb_metal_shelf_01/eb_metal_shelf_02.obj", "Corona/Great Hall/3bbce3da.png");
-	//("Corona/Great Hall/Great Hall Model.obj", "Corona/Great Hall/3bbce3da.png");
-	
-	/*for (int i = 0; i < 1; i++) {
-		shelf[i] = new Models::Shelf
-		("Corona/eb_metal_shelf_02.obj", "Corona/White Wood.png");
-	}*/
-	//shelf = new Models::Shelf
-	//("Corona/eb_metal_shelf_02.obj", "Corona/White Wood.png");
-	
-	
-	/*for (int i = 0; i < ilosc; i++) {
-		bot[i] = new Models::Bottle("Corona/Corona.obj", "Corona/BotellaText.png");
-	}*/
-
-		//gallery = new Models::Gallery("Corona/galeria.obj", "Corona/BotellaText.png");
-	for (int id = 0; id < 3; id++) {
+	for (int id = 0; id < 10; id++) {
 
 		if (tekstury[id] != NULL)
 			if (lodepng::decode(Models::Model::models[id].lode.data, Models::Model::models[id].lode.width, Models::Model::models[id].lode.height, tekstury[id]))
@@ -251,13 +234,10 @@ void initOpenGLProgram(GLFWwindow* window) {
 					}
 				}
 			}
-			//Models::Model::models.push_back(temp);
 	}
-	//Models::Model::models = models;
 	gallery = new Models::Gallery(0);
-	/*for (int i = 0; i < 100; i++) {
-		shelf[i] = new Models::Shelf(1);
-	}*/
+	//shelf = new Models::Shelf(1,9);
+	//bot = new Models::Bottle(5);
 
 }
 
@@ -291,39 +271,36 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	//M = glm::rotate(M, angle_y, glm::vec3(0.0f, 1.0f, 0.0f));
 
 	M = glm::scale(M, glm::vec3(0.2f, 0.2f, 0.2f));
+	//M = glm::scale(M, glm::vec3(0.02f, 0.02f, 0.02f));
 	M = glm::rotate(M, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
 	M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, -1.0f));
 	//M = glm::translate(M, glm::vec3(0.0f, -140.0f, 0.0f));
 	//M = glm::translate(M, glm::vec3(-300.0f, 0.0f, 0.0f));
 	
 	glLoadMatrixf(value_ptr(V*M));
-	
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
+	//bot->drawSolid();
+
 	gallery->draw(V, M);
+	//shelf->draw(V, M);
 
 	/*for (int i = 0; i < 100; i++) {
 		shelf[i]->draw(V, M);
 		M = glm::translate(M, glm::vec3(120.0f, 0.0f, 0.0f));
 		glLoadMatrixf(value_ptr(V*M));
 	}*/
-	//shelf->draw(V, M);
+	//shelf->drawMoet(V, M);
 
 	//M = glm::translate(M, glm::vec3(0.0f, 80.0f, 0.0f));
 	//glLoadMatrixf(value_ptr(V*M));
-	
-	//shelf->draw(V, M);
-
-	//bot->drawSolid();
 	
 	
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
 }
-
-//chuj
 
 int main(void)
 {
@@ -377,6 +354,8 @@ int main(void)
 	}
 
 	delete(gallery);
+	//delete(shelf);
+	//delete(bot);
 	glfwDestroyWindow(window); //Usuñ kontekst OpenGL i okno
 	glfwTerminate(); //Zwolnij zasoby zajête przez GLFW
 	exit(EXIT_SUCCESS);

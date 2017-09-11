@@ -9,7 +9,8 @@ namespace Models {
 		//char* path;
 		//char* texpath;
 		Bottle* bot[20];
-		Shelf(int);
+		int idbot;
+		Shelf(int,int);
 		~Shelf();
 		void draw(glm::mat4, glm::mat4);
 	};
