@@ -30,10 +30,10 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 
 //mod temp;
 
-char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj" ,"ButelkiNew/szampan/moet/Moet.obj" ,
-	"ButelkiNew/absolut vodka/AbsolutTest.obj" ,"ButelkiNew/chivas regal (whisky)/Chivas.obj",  
-	"ButelkiNew/beer/heineken/HeinekenTest.obj", "ButelkiNew/Screaming Eagle/ScreamingEagle.obj",
-	"ButelkiNew/les hauts de lynch/LesHauts.obj" ,"ButelkiNew/Turnbull's (whisky)/Turnbull's.obj"/*"ButelkiNew/napoleon/Napoleon.obj",*/ };
+char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj" ,"ButelkiNew/szampan/moet/SimpleMoet.obj" ,
+	"ButelkiNew/absolut vodka/SimpleAbsolutTest.obj" ,"ButelkiNew/chivas regal (whisky)/Chivas.obj",  
+	"ButelkiNew/beer/heineken/SimpleHeinekenTest.obj", "ButelkiNew/Screaming Eagle/SimpleScreamingEagle.obj",
+	"ButelkiNew/les hauts de lynch/SimpleLesHauts.obj" ,"ButelkiNew/Turnbull's (whisky)/SimpleTurnbull's.obj"/*"ButelkiNew/napoleon/Napoleon.obj",*/ };
 
 char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png" ,"Corona/corona.png" ,"ButelkiNew/szampan/moet/texture.png" ,
 	"ButelkiNew/absolut vodka/texture.png" ,"ButelkiNew/chivas regal (whisky)/texture.png", 
