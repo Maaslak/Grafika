@@ -1,9 +1,23 @@
-# Exported from 3D Builder
+# Layar3DModelConverter 3.2.0
+# Material count: 2
 
 newmtl Red
-Kd 1.000000 1.000000 1.000000
-map_Kd Gallery.png
+Ns 96.07843
+Ka 1.0 1.0 1.0 
+Kd 0.64 0.64 0.64 
+Ks 0.5 0.5 0.5 
+Ni 1.000000
+d 1.0
+illum 2
+map_Kd Gallery/Red.png
 
 newmtl Red_untitled.png
-Kd 1.000000 1.000000 1.000000
-map_Kd untitled.png
+Ns 96.07843
+Ka 1.0 1.0 1.0 
+Kd 0.64 0.64 0.64 
+Ks 0.5 0.5 0.5 
+Ni 1.000000
+d 1.0
+illum 2
+map_Kd Gallery/Red_untitled.png.png
+
