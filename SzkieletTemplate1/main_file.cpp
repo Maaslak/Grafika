@@ -33,12 +33,20 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj" ,"ButelkiNew/szampan/moet/SimpleMoet.obj" ,
 	"ButelkiNew/absolut vodka/SimpleAbsolutTest.obj" ,"ButelkiNew/chivas regal (whisky)/Chivas.obj",  
 	"ButelkiNew/beer/heineken/SimpleHeinekenTest.obj", "ButelkiNew/Screaming Eagle/SimpleScreamingEagle.obj",
-	"ButelkiNew/les hauts de lynch/SimpleLesHauts.obj" ,"ButelkiNew/Turnbull's (whisky)/SimpleTurnbull's.obj", "ButelkiNew/napoleon/SimpleNapoleon.obj" };
+	"ButelkiNew/les hauts de lynch/SimpleLesHauts.obj" ,"ButelkiNew/Turnbull's (whisky)/SimpleTurnbull's.obj", "ButelkiNew/napoleon/NapoleonTODO.obj",
+
+	"ButelkiNew/courvoisier/1/CouvoisierTODO.obj", "ButelkiNew/courvoisier/2/Courvoisier.obj", "ButelkiNew/cheval blanc/ChevalBlanc.obj", 
+	"ButelkiNew/Chateau Margaux/Chateau.obj", "ButelkiNew/Moulin de Launay/Moulin.obj", "ButelkiNew/brandy/Brandy1.obj", "ButelkiNew/brandy 2/Brandytest2.obj",
+	"ButelkiNew/martini/martini.obj"};
 
 char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png" ,"Corona/corona.png" ,"ButelkiNew/szampan/moet/texture.png" ,
 	"ButelkiNew/absolut vodka/texture.png" ,"ButelkiNew/chivas regal (whisky)/texture.png", 
 	"ButelkiNew/beer/heineken/texture.png", "ButelkiNew/Screaming Eagle/texture.png",
-	"ButelkiNew/les hauts de lynch/texture.png", "ButelkiNew/Turnbull's (whisky)/texture.png" ,"ButelkiNew/napoleon/texture.png" };
+	"ButelkiNew/les hauts de lynch/texture.png", "ButelkiNew/Turnbull's (whisky)/texture.png" ,"ButelkiNew/napoleon/texture.png",
+	
+	"ButelkiNew/courvoisier/1/texture.png", "ButelkiNew/courvoisier/2/texture.png",  "ButelkiNew/cheval blanc/texture.png",
+	"ButelkiNew/Chateau Margaux/texture.png", "ButelkiNew/Moulin de Launay/texture.png", "ButelkiNew/brandy/texture.png", "ButelkiNew/brandy 2/Brandy.png",
+	"ButelkiNew/martini/UV.png" };
 
 				   // camera
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -164,8 +172,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	//glCullFace(GL_FRONT);
 	//glFrontFace(GL_CCW);
 	
-	for (int id = 0; id < 11; id++) {
-
+	for (int id = 0; id < 19; id++) {
 		if (tekstury[id] != NULL)
 			if (lodepng::decode(Models::Model::models[id].lode.data, Models::Model::models[id].lode.width, Models::Model::models[id].lode.height, tekstury[id]))
 				cout << "Unable to load texture from" << ksztalty[id];
@@ -241,9 +248,10 @@ void initOpenGLProgram(GLFWwindow* window) {
 	//M = glm::scale(M, glm::vec3(0.02f, 0.02f, 0.02f));
 	M = glm::rotate(M, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
 	M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, -1.0f));
+	M = glm::translate(M, glm::vec3(0.0f, 10.0f, -10.0f));
 	gallery = new Models::Gallery(0,M);
 
-	//shelf = new Models::Shelf(1,9);
+	//shelf = new Models::Shelf(1,18,M);
 	//bot = new Models::Bottle(5);
 
 }
@@ -274,6 +282,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 
 
 	gallery->draw(V);
+	//shelf->draw(V);
 	
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
