@@ -85,13 +85,15 @@ namespace Models {
 			static mod models[20];
 
 			int id;
+			glm::mat4 M;
+			//static glm::mat4 V;
 					
-			virtual void drawSolid();
-			virtual void drawWire();
+			virtual void drawSolid(glm::mat4);
+			virtual void drawWire(glm::mat4);
 
 			Model();
 			~Model();
-			Model(int);
+			Model(int,glm::mat4);
 
 	};
 }

@@ -6,12 +6,10 @@ namespace Models {
 
 	class Shelf : public Model {
 	public:
-		//char* path;
-		//char* texpath;
 		Bottle* bot[20];
 		int idbot;
-		Shelf(int,int);
+		Shelf(int,int,glm::mat4);
 		~Shelf();
-		void draw(glm::mat4, glm::mat4);
+		void draw(glm::mat4);
 	};
 }

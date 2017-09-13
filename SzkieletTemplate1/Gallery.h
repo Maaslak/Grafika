@@ -14,12 +14,10 @@ namespace Models {
 
 	class Gallery : public Model{
 	public:
-		//char* path;
-		//char* texpath;
 		Shelf* shelf[28];
-		Gallery(int);
+		Gallery(int,glm::mat4);
 		~Gallery();
-		void draw(glm::mat4, glm::mat4);
+		void draw(glm::mat4);
 	};
 
 }

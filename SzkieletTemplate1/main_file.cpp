@@ -235,7 +235,14 @@ void initOpenGLProgram(GLFWwindow* window) {
 				}
 			}
 	}
-	gallery = new Models::Gallery(0);
+
+	glm::mat4 M = glm::mat4(1.0f);
+	M = glm::scale(M, glm::vec3(0.2f, 0.2f, 0.2f));
+	//M = glm::scale(M, glm::vec3(0.02f, 0.02f, 0.02f));
+	M = glm::rotate(M, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
+	M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, -1.0f));
+	gallery = new Models::Gallery(0,M);
+
 	//shelf = new Models::Shelf(1,9);
 	//bot = new Models::Bottle(5);
 
@@ -245,7 +252,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 
 
 //Procedura rysuj¹ca zawartoœæ sceny
-void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
+void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 	//************Tutaj umieszczaj kod rysuj¹cy obraz******************l
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Wyczyœæ bufor kolorów (czyli przygotuj "p³ótno" do rysowania)
@@ -253,6 +260,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 														//***Przygotowanie do rysowania****
 	glm::mat4 P = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 	glm::mat4 V = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+	//Models::Model::V = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 	/*lookAt( //Wylicz macierz widoku
 		vec3(0.0f, 0.0f, -5.0f),
 		vec3(0.0f, 0.0f, 0.0f),
@@ -261,42 +269,11 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y, glm::mat4 M) {
 	glLoadMatrixf(value_ptr(P)); //Za³aduj macierz rzutowania
 	glMatrixMode(GL_MODELVIEW);  //W³¹cz tryb modyfikacji macierzy model-widok
 
-
-								 //Rysowanie kostki
-								 //1. Wyliczenie i za³adowanie macierzy modelu
-	//glm::mat4 M = glm::mat4(1.0f);
-	//M = glm::rotate(M, 5.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-
-	//M = glm::rotate(M, angle_x, glm::vec3(1.0f, 0.0f, 0.0f));
-	//M = glm::rotate(M, angle_y, glm::vec3(0.0f, 1.0f, 0.0f));
-
-	M = glm::scale(M, glm::vec3(0.2f, 0.2f, 0.2f));
-	//M = glm::scale(M, glm::vec3(0.02f, 0.02f, 0.02f));
-	M = glm::rotate(M, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
-	M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, -1.0f));
-	//M = glm::translate(M, glm::vec3(0.0f, -140.0f, 0.0f));
-	//M = glm::translate(M, glm::vec3(-300.0f, 0.0f, 0.0f));
-	
-	glLoadMatrixf(value_ptr(V*M));
-
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	//bot->drawSolid();
 
-	gallery->draw(V, M);
-	//shelf->draw(V, M);
-
-	/*for (int i = 0; i < 100; i++) {
-		shelf[i]->draw(V, M);
-		M = glm::translate(M, glm::vec3(120.0f, 0.0f, 0.0f));
-		glLoadMatrixf(value_ptr(V*M));
-	}*/
-	//shelf->drawMoet(V, M);
-
-	//M = glm::translate(M, glm::vec3(0.0f, 80.0f, 0.0f));
-	//glLoadMatrixf(value_ptr(V*M));
-	
+	gallery->draw(V);
 	
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
@@ -337,16 +314,14 @@ int main(void)
 	float angle_y = 0.0f; //Aktualny k¹t obrotu obiektu wokó³ osi y
 	glfwSetTime(0); //Wyzeruj timer
 
-	glm::mat4 M = glm::mat4(1.0f);
-	//M = glm::rotate(M, 3.14f, glm::vec3(1.0f, 0.0f, 0.0f));
-	//M = glm::translate(M, glm::vec3(0.0f, -10.0f, -20.0f));
+
 					//G³ówna pêtla
 	while (!glfwWindowShouldClose(window)) //Tak d³ugo jak okno nie powinno zostaæ zamkniête
 	{
 		//angle_x += speed_x*glfwGetTime(); //Oblicz przyrost k¹ta obrotu i zwiêksz aktualny k¹t
 		//angle_y += speed_y*glfwGetTime(); //Oblicz przyrost k¹ta obrotu i zwiêksz aktualny k¹t
 		glfwSetTime(0); //Wyzeruj timer
-		drawScene(window, angle_x, angle_y,M); //Wykonaj procedurê rysuj¹c¹
+		drawScene(window, angle_x, angle_y); //Wykonaj procedurê rysuj¹c¹
 		glfwPollEvents(); //Wykonaj procedury callback w zaleznoœci od zdarzeñ jakie zasz³y.
 		glfwSetCursorPosCallback(window, mouse_callback);
 		cameraPos += deltacameraPos;
@@ -360,48 +335,3 @@ int main(void)
 	glfwTerminate(); //Zwolnij zasoby zajête przez GLFW
 	exit(EXIT_SUCCESS);
 }
-
-//glm::mat4 M1;
-/*int sciana[3];
-sciana[1] = ilosc / 5 * 2;
-sciana[2] = ilosc / 5;
-sciana[3] = ilosc / 5 * 2;*/
-/*for (int i = 0; i < ilosc/(ilosc/4); i++) {
-M1 = glm::translate(M, glm::vec3(0.0f, 0.0f, i * (-50) + 0.0f));
-for (int j = 0; j < ilosc/4; j++) {
-M1 = glm::translate(M1, glm::vec3(0.0f, 20.0f, 0.0f));
-glLoadMatrixf(value_ptr(V*M1));
-bot[i]->drawSolid();
-
-}
-}*/
-
-/*	for (int i = 0; i < sciana[2] / (sciana[2] / 4); i++) {
-M1 = glm::translate(M, glm::vec3(0.0f, sciana[1]*5+0.0f, i * (-50) + 0.0f));
-for (int j = 0; j < sciana[2] / 4; j++) {
-M1 = glm::translate(M1, glm::vec3(-20.0f, 0.0f, 0.0f));
-glLoadMatrixf(value_ptr(V*M1));
-bot[sciana[1]+i]->drawSolid();
-
-}
-}
-
-for (int i = 0; i < sciana[3] / (sciana[3] / 4); i++) {
-M1 = glm::translate(M, glm::vec3(sciana[2]*5+0.0f, sciana[1] * 5 + 0.0f, i * (-50) + 0.0f));
-for (int j = 0; j < sciana[3] / 4; j++) {
-M1 = glm::translate(M1, glm::vec3(0.0f, 0.0f, -20.0f));
-glLoadMatrixf(value_ptr(V*M1));
-bot[sciana[1]+sciana[2] + i]->drawSolid();
-
-}
-}
-*/
-
-
-/*int main(int argc, char** argv) {
-	initializeGLUT(&argc, argv);
-	initializeGLEW();
-	//Kod inicjuj¹cy tutaj
-	glutMainLoop();
-	//Kod zwalniaj¹cy zasoby tutaj
-}*/
