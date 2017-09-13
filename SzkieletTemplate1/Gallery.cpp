@@ -25,8 +25,11 @@ namespace Models {
 		for (int i = 24; i < 26; i++) {
 			shelf[i] = new Models::Shelf(1, 8);
 		}
-		for (int i = 26; i < 28; i++) {
+		for (int i = 26; i < 27; i++) {
 			shelf[i] = new Models::Shelf(1, 9);
+		}
+		for (int i = 27; i < 28; i++) {
+			shelf[i] = new Models::Shelf(1, 10);
 		}
 		//shelf = new Models::Shelf(1);
 	}

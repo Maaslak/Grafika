@@ -186,7 +186,7 @@ namespace Models {
 
 
 							else
-								if (this->idbot == 99) { //Napoleon (w chuj duzo wierzcholkow)
+								if (this->idbot == 10) { //Napoleon
 									this->drawSolid();
 									M = glm::rotate(M, 4.71f, glm::vec3(1.0f, 0.0f, 0.0f));
 									//M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, 1.0f));

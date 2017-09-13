@@ -33,12 +33,12 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj" ,"ButelkiNew/szampan/moet/SimpleMoet.obj" ,
 	"ButelkiNew/absolut vodka/SimpleAbsolutTest.obj" ,"ButelkiNew/chivas regal (whisky)/Chivas.obj",  
 	"ButelkiNew/beer/heineken/SimpleHeinekenTest.obj", "ButelkiNew/Screaming Eagle/SimpleScreamingEagle.obj",
-	"ButelkiNew/les hauts de lynch/SimpleLesHauts.obj" ,"ButelkiNew/Turnbull's (whisky)/SimpleTurnbull's.obj"/*"ButelkiNew/napoleon/Napoleon.obj",*/ };
+	"ButelkiNew/les hauts de lynch/SimpleLesHauts.obj" ,"ButelkiNew/Turnbull's (whisky)/SimpleTurnbull's.obj", "ButelkiNew/napoleon/SimpleNapoleon.obj" };
 
 char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png" ,"Corona/corona.png" ,"ButelkiNew/szampan/moet/texture.png" ,
 	"ButelkiNew/absolut vodka/texture.png" ,"ButelkiNew/chivas regal (whisky)/texture.png", 
 	"ButelkiNew/beer/heineken/texture.png", "ButelkiNew/Screaming Eagle/texture.png",
-	"ButelkiNew/les hauts de lynch/texture.png", "ButelkiNew/Turnbull's (whisky)/texture.png" /*"ButelkiNew/napoleon/texture.png",*/ };
+	"ButelkiNew/les hauts de lynch/texture.png", "ButelkiNew/Turnbull's (whisky)/texture.png" ,"ButelkiNew/napoleon/texture.png" };
 
 				   // camera
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -164,7 +164,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	//glCullFace(GL_FRONT);
 	//glFrontFace(GL_CCW);
 	
-	for (int id = 0; id < 10; id++) {
+	for (int id = 0; id < 11; id++) {
 
 		if (tekstury[id] != NULL)
 			if (lodepng::decode(Models::Model::models[id].lode.data, Models::Model::models[id].lode.width, Models::Model::models[id].lode.height, tekstury[id]))
