@@ -28,7 +28,7 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 
 namespace Models {
 	//vector <mod> Model::models;
-	mod Model::models[20];
+	mod Model::models[30];
 	void Model::drawWire(glm::mat4 V) {
 		glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 		

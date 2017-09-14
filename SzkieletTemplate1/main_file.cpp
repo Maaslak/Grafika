@@ -37,7 +37,8 @@ char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj
 
 	"ButelkiNew/courvoisier/1/CouvoisierTODO.obj", "ButelkiNew/courvoisier/2/Courvoisier.obj", "ButelkiNew/cheval blanc/ChevalBlanc.obj", 
 	"ButelkiNew/Chateau Margaux/Chateau.obj", "ButelkiNew/Moulin de Launay/Moulin.obj", "ButelkiNew/brandy/Brandy1.obj", "ButelkiNew/brandy 2/Brandytest2.obj",
-	"ButelkiNew/martini/martini.obj"};
+	"ButelkiNew/martini/martini.obj", "ButelkiNew/Cointreau/Cointreau.obj", "ButelkiNew/szampan/Gout de Diamant/GdD.obj",
+	"ButelkiNew/beer/BrewDog Atlantic IPA/BrewDog.obj", "ButelkiNew/beer/budweiser/Budweiser.obj" };
 
 char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png" ,"Corona/corona.png" ,"ButelkiNew/szampan/moet/texture.png" ,
 	"ButelkiNew/absolut vodka/texture.png" ,"ButelkiNew/chivas regal (whisky)/texture.png", 
@@ -46,7 +47,8 @@ char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png" ,"Corona/corona.png"
 	
 	"ButelkiNew/courvoisier/1/texture.png", "ButelkiNew/courvoisier/2/texture.png",  "ButelkiNew/cheval blanc/texture.png",
 	"ButelkiNew/Chateau Margaux/texture.png", "ButelkiNew/Moulin de Launay/texture.png", "ButelkiNew/brandy/texture.png", "ButelkiNew/brandy 2/Brandy.png",
-	"ButelkiNew/martini/UV.png" };
+	"ButelkiNew/martini/UV.png", "ButelkiNew/Cointreau/texture.png", "ButelkiNew/szampan/Gout de Diamant/texture.png",
+	"ButelkiNew/beer/BrewDog Atlantic IPA/texture.png", "ButelkiNew/beer/budweiser/texture.png" };
 
 				   // camera
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
@@ -172,7 +174,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	//glCullFace(GL_FRONT);
 	//glFrontFace(GL_CCW);
 	
-	for (int id = 0; id < 19; id++) {
+	for (int id = 0; id < 23; id++) {
 		if (tekstury[id] != NULL)
 			if (lodepng::decode(Models::Model::models[id].lode.data, Models::Model::models[id].lode.width, Models::Model::models[id].lode.height, tekstury[id]))
 				cout << "Unable to load texture from" << ksztalty[id];
@@ -251,7 +253,7 @@ void initOpenGLProgram(GLFWwindow* window) {
 	M = glm::translate(M, glm::vec3(0.0f, 10.0f, -10.0f));
 	gallery = new Models::Gallery(0,M);
 
-	//shelf = new Models::Shelf(1,18,M);
+	//shelf = new Models::Shelf(1,22,M);
 	//bot = new Models::Bottle(5);
 
 }
@@ -289,6 +291,7 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 }
 
 int main(void)
+
 {
 	GLFWwindow* window; //WskaŸnik na obiekt reprezentuj¹cy okno
 	

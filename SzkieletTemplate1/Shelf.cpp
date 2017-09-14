@@ -31,7 +31,7 @@ namespace Models {
 
 		}
 		else
-			if (this->idbot == 3) { //Moet
+			if (this->idbot == 3 || this->idbot == 20) { //Moet i Gout de Diamant 
 				M = glm::rotate(M, 4.71f, glm::vec3(1.0f, 0.0f, 0.0f));
 				M = glm::translate(M, glm::vec3(-50.0f, -20.0f, 11.0f));
 				M = glm::scale(M, glm::vec3(3.1f, 3.1f, 3.1f));
@@ -79,7 +79,7 @@ namespace Models {
 						}
 					}
 					else
-						if (this->idbot == 6) { //heineken
+						if (this->idbot == 6 || this->idbot == 21 || this->idbot == 22) { //heineken, BrewDog Atlantic IPA i Budweiser
 							M = glm::rotate(M, 4.71f, glm::vec3(1.0f, 0.0f, 0.0f));
 							M = glm::translate(M, glm::vec3(-57.0f, -20.0f, 11.0f));
 							M = glm::scale(M, glm::vec3(3.0f, 3.0f, 3.0f));
@@ -238,6 +238,22 @@ namespace Models {
 																}
 															}
 														}
+														else
+															if (this->idbot == 19) { //Cointreau
+																M = glm::rotate(M, 4.71f, glm::vec3(1.0f, 0.0f, 0.0f));
+																M = glm::translate(M, glm::vec3(-57.0f, -20.0f, 11.0f));
+																M = glm::scale(M, glm::vec3(2.5f, 2.5f, 2.5f));
+
+																glm::mat4 M1;
+																for (int i = 0; i < 20 / (20 / 4); i++) {
+																	M1 = glm::translate(M, glm::vec3(0.0f, 0.0f, i * 14.3f + 0.0f));
+																	for (int j = 0; j < 20 / 4; j++) {
+																		M1 = glm::translate(M1, glm::vec3(7.8f, 0.0f, 0.0f));
+																		bot[j + (i * 5)] = new Models::Bottle(idbot, M1);
+																	}
+																}
+															}
+															
 	}
 	Shelf::~Shelf() {
 		for (int i = 0; i < 20; i++) {

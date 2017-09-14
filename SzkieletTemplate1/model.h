@@ -82,7 +82,7 @@ namespace Models {
 			bool istriangle = true;*/
 
 			//static vector<mod> models;
-			static mod models[20];
+			static mod models[30];
 
 			int id;
 			glm::mat4 M;
