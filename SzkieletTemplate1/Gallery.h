@@ -18,6 +18,8 @@ namespace Models {
 		Gallery(int,glm::mat4);
 		~Gallery();
 		void draw(glm::mat4);
+		void initCollisionTable();
+		bool isCollision(glm::vec3);
 	};
 
 }

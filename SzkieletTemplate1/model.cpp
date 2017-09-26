@@ -26,9 +26,15 @@ Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 
+extern const int CollTabPrec;
+
 namespace Models {
 	//vector <mod> Model::models;
 	mod Model::models[30];
+	vector<Model*> Model::allobjects;
+	unsigned int Model::count = -1;
+	CollisionTables Model::coltab;
+
 	void Model::drawWire(glm::mat4 V) {
 		glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
 		
@@ -37,7 +43,37 @@ namespace Models {
 		glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
 	}
 
+	void Model::myMinMax(glm::vec3& min, glm::vec3& max)
+	{
+		for (size_t i = 0; i < models[id].vertexCount; i++)
+		{
+			glm::vec4 temp;
+			temp.x = models[id].vertices[3 * i];
+			temp.y = models[id].vertices[3 * i + 1];
+			temp.z = models[id].vertices[3 * i + 2];
+			temp.w = 0.0f;
+			temp = this -> M * temp ;
+			if (temp.x > max.x)
+				max.x = temp.x;
+			if (temp.x < min.x)
+				min.x = temp.x;
+			if (temp.y > max.y)
+				max.y = temp.y;
+			if (temp.y < min.y)
+				min.y = temp.y;
+			if (temp.z > max.z)
+				max.z = temp.z;
+			if (temp.z < min.z)
+				min.z = temp.z;
+		}
+	}
+
 	void Model::drawSolid(glm::mat4 V) {
+		//gluPerspective(10, 1, 1, 100);
+		glStencilFunc(GL_ALWAYS, this->selid%255, -1);
+
+		glMatrixMode(GL_MODELVIEW);
+		//glLoadIdentity();
 		glLoadMatrixf(value_ptr(V*M));
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -62,9 +98,31 @@ namespace Models {
 		
 	}
 
+	void Model::UpdateCollTable() {
+		for (size_t i = 0; i < models[id].vertexCount; i++)
+		{
+			glm::vec4 temp;
+			temp.x = models[id].vertices[3 * i];
+			temp.y = models[id].vertices[3 * i + 1];
+			temp.z = models[id].vertices[3 * i + 2];
+			temp.w = 0.0f;
+			temp = this->M * temp;
+			int idx, idz;
+			idx = round((temp.x - coltab.min.x) / coltab.delta.x);
+			idz = round((temp.z - coltab.min.z) / coltab.delta.z);
+			if (idx == CollTabPrec)
+				idx--;
+			if (idz == CollTabPrec)
+				idz--;
+			coltab.tab[idx][idz] = true;
+		}
+
+	}
+
 	Model::Model()
 	{
 		//models[id].isdynamic = false;
+		this->count++;
 	}
 	Model::~Model()
 	{
@@ -82,9 +140,16 @@ namespace Models {
 				delete(models[i].colors);
 		}*/
 	}
+
+
 	Model::Model(int id,glm::mat4 M)
 	{
+		Model();
+		this->selid = this->count;
+		allobjects.push_back(this);
 		this->id = id;
 		this->M = M;
+
+
 	}
 }

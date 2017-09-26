@@ -7,6 +7,7 @@
 #include "glm/gtc/type_ptr.hpp"
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
+#include <typeinfo>
 #include "lodepng.h"
 //#include "constants.h"
 //#include "allmodels.h"
@@ -30,6 +31,8 @@ float speed_y = 0; //Szybkoœæ k¹towa obrotu obiektu w radianach na sekundê wokó³
 
 //mod temp;
 
+
+
 char* ksztalty[] = { "Gallery/Gallery.obj","Shelf/shelf.obj" ,"Corona/corona.obj" ,"ButelkiNew/szampan/moet/SimpleMoet.obj" ,
 	"ButelkiNew/absolut vodka/SimpleAbsolutTest.obj" ,"ButelkiNew/chivas regal (whisky)/Chivas.obj",  
 	"ButelkiNew/beer/heineken/SimpleHeinekenTest.obj", "ButelkiNew/Screaming Eagle/SimpleScreamingEagle.obj",
@@ -51,8 +54,8 @@ char* tekstury[] = { "Gallery/cegla1.png","Shelf/polka.png" ,"Corona/corona.png"
 	"ButelkiNew/beer/BrewDog Atlantic IPA/texture.png", "ButelkiNew/beer/budweiser/texture.png" };
 
 				   // camera
-glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
-glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, 0.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 glm::vec3 deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
 
@@ -60,6 +63,10 @@ int n = 0;
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+const float NEAR_DIST = 0.91f;
+const float TOO_NEAR_DIST = 0.94f;
+float closest_one;
+
 
 bool firstMouse = true;
 float yaw = -90.0f;	// yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right so we initially rotate a bit to the left.
@@ -67,6 +74,9 @@ float pitch = 0.0f;
 float lastX = 800.0f / 2.0;
 float lastY = 600.0 / 2.0;
 float fov = 45.0f;
+
+unsigned char * scientbuf;
+float * zbuf;
 
 Models::Gallery* gallery;
 //Models::Shelf* shelf;
@@ -95,6 +105,7 @@ void windowResize(GLFWwindow* window, int width, int height) {
 
 //Procedura obs³ugi klawiatury
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	/*
 	if (action == GLFW_PRESS) {
 		if (key == GLFW_KEY_LEFT) speed_y = PI / 2;
 		if (key == GLFW_KEY_RIGHT) speed_y = -PI / 2;
@@ -108,7 +119,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		if (key == GLFW_KEY_UP) speed_x = 0;
 		if (key == GLFW_KEY_DOWN) speed_x = 0;
 	}
-
+	*/
 	deltacameraPos = glm::vec3(0.0f, 0.0f, 0.0f);
 	float cameraSpeed = 2.0f * glfwGetTime();
 
@@ -120,6 +131,61 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		deltacameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		deltacameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+}
+
+void Selection(int x, int y) {
+	int selid = 0;
+	selid = (int)scientbuf[y*SCR_WIDTH + x];
+	int selid2 = selid + 255;
+	int selid3 = selid + 510;
+	float dist = zbuf[y*SCR_WIDTH + x];
+	if (dist < NEAR_DIST) {
+		try {
+			Models::Bottle* a = dynamic_cast<Models::Bottle *> (Models::Model::allobjects[selid]);
+			if (a == NULL) throw - 100;
+			//cout << "It's a bottle\n";
+			a->DrinkMe();
+		}
+		catch (...) {
+			//cout << "It's not a bottle\n";
+		}
+		try {
+			if (selid2 <= Models::Model::allobjects.size()) {
+				Models::Bottle* a = dynamic_cast<Models::Bottle *> (Models::Model::allobjects[selid2]);
+				if (a == NULL) throw - 100;
+				a->DrinkMe();
+			}
+		}
+		catch (...) {
+
+		}
+		try {
+			if (selid3 <= Models::Model::allobjects.size()) {
+				Models::Bottle* a = dynamic_cast<Models::Bottle *> (Models::Model::allobjects[selid3]);
+				if (a == NULL) throw - 100;
+				a->DrinkMe();
+			}
+		}
+		catch (...) {
+
+		}
+		cout << "Selected object's id: " << selid << "\nDistance: " << dist << '\n';
+	}
+}
+
+void Drop() {
+	int selid = 0;
+	cout << "Dropped object's id: " << selid << '\n';
+}
+
+void mouse_click_callback(GLFWwindow* window, int button, int action, int mods) {
+	if (button == 0) {
+		if(action == GLFW_PRESS)
+			Selection(SCR_WIDTH/2, SCR_HEIGHT/2);
+		if (action == GLFW_RELEASE)
+			Drop();
+	}
+
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
@@ -155,26 +221,8 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     cameraFront = glm::normalize(front);
 }  
 
-//Procedura inicjuj¹ca
-void initOpenGLProgram(GLFWwindow* window) {
-	//************Tutaj umieszczaj kod, który nale¿y wykonaæ raz, na pocz¹tku programu************
-	glfwSetFramebufferSizeCallback(window, windowResize); //Zarejestruj procedurê obs³ugi zmiany rozdzielczoœci bufora ramki
-	
-	glfwSetKeyCallback(window, key_callback); //Zarejestruj procedurê obs³ugi klawiatury
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-	glClearColor(0, 0, 0, 1); //Ustaw kolor czyszczenia ekranu
-
-							  //glEnable(GL_LIGHTING); //W³¹cz tryb cieniowania
-	glEnable(GL_LIGHT0); //W³¹cz zerowe Ÿród³o œwiat³a
-	glEnable(GL_DEPTH_TEST); //W³¹cz u¿ywanie budora g³êbokoœci
-	glEnable(GL_COLOR_MATERIAL); //W³¹cz œledzenie kolorów przez materia³
-	glEnable(GL_TEXTURE_2D);
-	//glEnable(GL_CULL_FACE);
-	//glCullFace(GL_FRONT);
-	//glFrontFace(GL_CCW);
-	
-	for (int id = 0; id < 23; id++) {
+void loadObjts() {
+	for (int id = 0; id < 3; id++) {
 		if (tekstury[id] != NULL)
 			if (lodepng::decode(Models::Model::models[id].lode.data, Models::Model::models[id].lode.width, Models::Model::models[id].lode.height, tekstury[id]))
 				cout << "Unable to load texture from" << ksztalty[id];
@@ -244,6 +292,32 @@ void initOpenGLProgram(GLFWwindow* window) {
 				}
 			}
 	}
+}
+
+//Procedura inicjuj¹ca
+void initOpenGLProgram(GLFWwindow* window) {
+	//************Tutaj umieszczaj kod, który nale¿y wykonaæ raz, na pocz¹tku programu************
+	glfwSetFramebufferSizeCallback(window, windowResize); //Zarejestruj procedurê obs³ugi zmiany rozdzielczoœci bufora ramki
+	
+	glfwSetKeyCallback(window, key_callback); //Zarejestruj procedurê obs³ugi klawiatury
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+	glClearColor(0, 0, 0, 1); //Ustaw kolor czyszczenia ekranu
+
+							  //glEnable(GL_LIGHTING); //W³¹cz tryb cieniowania
+	glEnable(GL_LIGHT0); //W³¹cz zerowe Ÿród³o œwiat³a
+	glEnable(GL_DEPTH_TEST); //W³¹cz u¿ywanie budora g³êbokoœci
+	glEnable(GL_COLOR_MATERIAL); //W³¹cz œledzenie kolorów przez materia³
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_STENCIL);
+
+	glShadeModel(GL_FLAT);
+	//glRenderMode(GL_SELECT);
+	//glEnable(GL_CULL_FACE);
+	//glCullFace(GL_FRONT);
+	//glFrontFace(GL_CCW);
+	loadObjts();
+	//Changecameraview
 
 	glm::mat4 M = glm::mat4(1.0f);
 	M = glm::scale(M, glm::vec3(0.2f, 0.2f, 0.2f));
@@ -251,8 +325,15 @@ void initOpenGLProgram(GLFWwindow* window) {
 	M = glm::rotate(M, 1.57f, glm::vec3(-1.0f, 0.0f, 0.0f));
 	M = glm::rotate(M, 1.57f, glm::vec3(0.0f, 0.0f, -1.0f));
 	M = glm::translate(M, glm::vec3(0.0f, 10.0f, -10.0f));
+	
 	gallery = new Models::Gallery(0,M);
+	
 
+	cout << "There is: " << Models::Model::allobjects.size() << " instances\n";
+	cout << "Counted: " << Models::Model::count << " instances\n";
+
+	scientbuf = new unsigned char[SCR_WIDTH*SCR_HEIGHT];
+	zbuf = new float[SCR_WIDTH*SCR_HEIGHT];
 	//shelf = new Models::Shelf(1,22,M);
 	//bot = new Models::Bottle(5);
 
@@ -264,8 +345,8 @@ void initOpenGLProgram(GLFWwindow* window) {
 //Procedura rysuj¹ca zawartoœæ sceny
 void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 	//************Tutaj umieszczaj kod rysuj¹cy obraz******************l
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Wyczyœæ bufor kolorów (czyli przygotuj "p³ótno" do rysowania)
+	glClearStencil(0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT); //Wyczyœæ bufor kolorów (czyli przygotuj "p³ótno" do rysowania)
 
 														//***Przygotowanie do rysowania****
 	glm::mat4 P = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
@@ -275,23 +356,30 @@ void drawScene(GLFWwindow* window, float angle_x, float angle_y) {
 		vec3(0.0f, 0.0f, -5.0f),
 		vec3(0.0f, 0.0f, 0.0f),
 		vec3(0.0f, 1.0f, 0.0f));*/
-	glMatrixMode(GL_PROJECTION); //W³¹cz tryb modyfikacji macierzy rzutomainwania
+	glMatrixMode(GL_PROJECTION);//W³¹cz tryb modyfikacji macierzy rzutomainwania
+	//glLoadIdentity();
 	glLoadMatrixf(value_ptr(P)); //Za³aduj macierz rzutowania
 	glMatrixMode(GL_MODELVIEW);  //W³¹cz tryb modyfikacji macierzy model-widok
+	//glLoadIdentity ();
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
+	glEnable(GL_STENCIL_TEST);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
 	gallery->draw(V);
 	//shelf->draw(V);
 	
+	glReadPixels(0, 0, SCR_WIDTH, SCR_HEIGHT, GL_STENCIL_INDEX, GL_UNSIGNED_BYTE, scientbuf);
+	glReadPixels(0, 0, SCR_WIDTH, SCR_HEIGHT, GL_DEPTH_COMPONENT, GL_FLOAT, zbuf);
 
 	glfwSwapBuffers(window); //Przerzuæ tylny bufor na przedni
 }
 
-int main(void)
 
+
+int main(void)
 {
 	GLFWwindow* window; //WskaŸnik na obiekt reprezentuj¹cy okno
 	
@@ -336,6 +424,8 @@ int main(void)
 		drawScene(window, angle_x, angle_y); //Wykonaj procedurê rysuj¹c¹
 		glfwPollEvents(); //Wykonaj procedury callback w zaleznoœci od zdarzeñ jakie zasz³y.
 		glfwSetCursorPosCallback(window, mouse_callback);
+		glfwSetMouseButtonCallback(window, mouse_click_callback);
+		gallery->isCollision(cameraPos);
 		cameraPos += deltacameraPos;
 
 	}
@@ -343,6 +433,8 @@ int main(void)
 	delete(gallery);
 	//delete(shelf);
 	//delete(bot);
+	delete(scientbuf);
+	delete(zbuf);
 	glfwDestroyWindow(window); //Usuñ kontekst OpenGL i okno
 	glfwTerminate(); //Zwolnij zasoby zajête przez GLFW
 	exit(EXIT_SUCCESS);

@@ -62,6 +62,13 @@ typedef struct mod {
 	bool istriangle = true;
 };
 
+const int CollTabPrec = 1000;
+
+struct CollisionTables {
+	bool **tab;
+	glm::vec3 delta, min, max;
+};
+
 
 namespace Models {
 
@@ -82,14 +89,21 @@ namespace Models {
 			bool istriangle = true;*/
 
 			//static vector<mod> models;
-			static mod models[30];
+			static mod models[30];/*Static table of unique models*/
+			static vector<Model*> allobjects; /*Vector of pointers to all objects at the scene indexed by unique ID*/
+			static unsigned int count;/*Counter of objects used to give object unique ID*/
+			static CollisionTables coltab;/*2D Collision Table of boolean variables*/
 
 			int id;
+			unsigned int selid;
 			glm::mat4 M;
+
 			//static glm::mat4 V;
 					
 			virtual void drawSolid(glm::mat4);
+			void UpdateCollTable();
 			virtual void drawWire(glm::mat4);
+			void myMinMax(glm::vec3&, glm::vec3&);
 
 			Model();
 			~Model();

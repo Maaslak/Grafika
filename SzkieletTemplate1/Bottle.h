@@ -7,7 +7,9 @@ namespace Models {
 	public:
 		Bottle(int id, glm::mat4 M);
 		void draw(glm::mat4);
-
+		void pick();
+		bool drinked = false;
+		void DrinkMe();
 	};
 
 }

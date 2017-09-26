@@ -12,7 +12,17 @@ namespace Models {
 	}
 	void Bottle::draw(glm::mat4 V) {
 		//glLoadMatrixf(value_ptr(V*M));
-		this->drawSolid(V);
+		
+			this->drawSolid(V);
+	}
+
+	void Bottle::pick()
+	{
+	}
+
+	void Bottle::DrinkMe()
+	{
+		drinked = true;
 	}
 
 

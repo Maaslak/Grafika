@@ -11,7 +11,9 @@
 
 namespace Models {
 	Shelf::Shelf(int id,int idbot,glm::mat4 M):Model(id,M) {
-		this->idbot = idbot;
+		//this->idbot = idbot;
+		this->idbot = 2;
+		//this->UpdateCollTable();
 
 		if (this->idbot == 2) { //Corona
 			M = glm::rotate(M, 4.71f, glm::vec3(1.0f, 0.0f, 0.0f));
@@ -24,7 +26,7 @@ namespace Models {
 				M1 = glm::translate(M, glm::vec3(0.0f, 0.0f, i * 45 + 0.0f));
 				for (int j = 0; j < 20 / 4; j++) {
 					M1 = glm::translate(M1, glm::vec3(0.0f, 20.0f, 0.0f));
-					bot[j + (i * 5)] = new Models::Bottle(idbot,M1);
+					bot[j + (i * 5)] = new Models::Bottle(this->idbot,M1);
 
 				}
 			}
@@ -253,8 +255,7 @@ namespace Models {
 																	}
 																}
 															}
-															
-	}
+}
 	Shelf::~Shelf() {
 		for (int i = 0; i < 20; i++) {
 			delete(bot[i]);
@@ -263,7 +264,8 @@ namespace Models {
 	void Shelf::draw(glm::mat4 V) {
 		this->drawSolid(V);
 		for (int i = 0; i < 20; i++) {
-			bot[i]->draw(V);
+			if(!bot[i]->drinked)
+				bot[i]->draw(V);
 		}
 	}
 }
